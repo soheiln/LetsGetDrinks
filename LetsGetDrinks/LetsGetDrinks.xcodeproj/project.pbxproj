@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18F1454F1CF5210500014AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1454E1CF5210500014AB1 /* AppDelegate.swift */; };
-		18F145511CF5210500014AB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F145501CF5210500014AB1 /* ViewController.swift */; };
+		18F145511CF5210500014AB1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F145501CF5210500014AB1 /* MapViewController.swift */; };
 		18F145541CF5210500014AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F145521CF5210500014AB1 /* Main.storyboard */; };
 		18F145571CF5210500014AB1 /* LetsGetDrinks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18F145551CF5210500014AB1 /* LetsGetDrinks.xcdatamodeld */; };
 		18F145591CF5210500014AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F145581CF5210500014AB1 /* Assets.xcassets */; };
@@ -16,6 +16,7 @@
 		18F145671CF5210500014AB1 /* LetsGetDrinksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F145661CF5210500014AB1 /* LetsGetDrinksTests.swift */; };
 		18F145721CF5210500014AB1 /* LetsGetDrinksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F145711CF5210500014AB1 /* LetsGetDrinksUITests.swift */; };
 		18F145821CF521D600014AB1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F145811CF521D600014AB1 /* CoreDataStack.swift */; };
+		18F145841CF52ACA00014AB1 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F145831CF52ACA00014AB1 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 /* Begin PBXFileReference section */
 		18F1454B1CF5210500014AB1 /* LetsGetDrinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGetDrinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F1454E1CF5210500014AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18F145501CF5210500014AB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = LetsGetDrinks/ViewController.swift; sourceTree = "<group>"; };
+		18F145501CF5210500014AB1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = LetsGetDrinks/MapViewController.swift; sourceTree = "<group>"; };
 		18F145531CF5210500014AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18F145561CF5210500014AB1 /* LetsGetDrinks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LetsGetDrinks.xcdatamodel; sourceTree = "<group>"; };
 		18F145581CF5210500014AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		18F145711CF5210500014AB1 /* LetsGetDrinksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsGetDrinksUITests.swift; sourceTree = "<group>"; };
 		18F145731CF5210500014AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18F145811CF521D600014AB1 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		18F145831CF52ACA00014AB1 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +144,8 @@
 		18F145801CF5219A00014AB1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				18F145501CF5210500014AB1 /* ViewController.swift */,
+				18F145501CF5210500014AB1 /* MapViewController.swift */,
+				18F145831CF52ACA00014AB1 /* CollectionViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -278,10 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18F145511CF5210500014AB1 /* ViewController.swift in Sources */,
+				18F145511CF5210500014AB1 /* MapViewController.swift in Sources */,
 				18F145571CF5210500014AB1 /* LetsGetDrinks.xcdatamodeld in Sources */,
 				18F1454F1CF5210500014AB1 /* AppDelegate.swift in Sources */,
 				18F145821CF521D600014AB1 /* CoreDataStack.swift in Sources */,
+				18F145841CF52ACA00014AB1 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
