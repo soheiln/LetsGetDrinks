@@ -13,6 +13,7 @@ class CollectionViewController: UIViewController {
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     
@@ -25,5 +26,17 @@ class CollectionViewController: UIViewController {
     @IBAction func favoritesButtonPressed(sender: AnyObject) {
     }
     
+    
+    
+    func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    
+    func hideActivityIndicator() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
+    }
+
 }
 

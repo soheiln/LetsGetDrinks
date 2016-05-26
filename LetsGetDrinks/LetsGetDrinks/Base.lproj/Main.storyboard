@@ -53,11 +53,17 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WS5-Ou-eMT">
                                 <rect key="frame" x="0.0" y="80" width="600" height="471"/>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8yB-67-yyK" userLabel="activityIndicator">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NqO-CZ-lvb" firstAttribute="leading" secondItem="pJB-M2-4OC" secondAttribute="leading" id="9ZY-Mo-T6T"/>
                             <constraint firstItem="WS5-Ou-eMT" firstAttribute="leading" secondItem="pJB-M2-4OC" secondAttribute="leading" id="9tz-kf-t5W"/>
+                            <constraint firstItem="8yB-67-yyK" firstAttribute="centerY" secondItem="pJB-M2-4OC" secondAttribute="centerY" id="IK8-hG-6q7"/>
+                            <constraint firstItem="8yB-67-yyK" firstAttribute="centerX" secondItem="pJB-M2-4OC" secondAttribute="centerX" id="IhM-5B-lRk"/>
                             <constraint firstItem="WS5-Ou-eMT" firstAttribute="top" secondItem="NqO-CZ-lvb" secondAttribute="bottom" id="SrR-VV-OL3"/>
                             <constraint firstItem="NqO-CZ-lvb" firstAttribute="top" secondItem="AIz-Dt-uNK" secondAttribute="bottom" id="TYB-pE-Jqp"/>
                             <constraint firstItem="WS5-Ou-eMT" firstAttribute="top" secondItem="AIz-Dt-uNK" secondAttribute="bottom" id="Wvc-KP-zXB"/>
@@ -75,6 +81,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="sb6-h4-2FN"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="8yB-67-yyK" id="cH8-ID-Xra"/>
                         <outlet property="favoritesButton" destination="97s-po-yi5" id="Ohq-wQ-OBL"/>
                         <outlet property="mapView" destination="WS5-Ou-eMT" id="t4b-21-nMQ"/>
                         <outlet property="searchBar" destination="ZYW-Sd-gsk" id="UJA-Xp-Ecr"/>
@@ -149,6 +156,10 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1Cf-xw-sos" userLabel="activityIndicator">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -158,11 +169,14 @@
                             <constraint firstAttribute="trailing" secondItem="KxL-Jv-XxV" secondAttribute="trailing" id="TPZ-zI-aYh"/>
                             <constraint firstItem="ZBh-h6-WAG" firstAttribute="top" secondItem="KxL-Jv-XxV" secondAttribute="bottom" id="Yqr-VH-5WA"/>
                             <constraint firstItem="JXx-sf-1b5" firstAttribute="top" secondItem="bAn-dk-rpZ" secondAttribute="bottom" id="a9c-GC-iUD"/>
+                            <constraint firstItem="1Cf-xw-sos" firstAttribute="centerY" secondItem="FHa-kR-kZi" secondAttribute="centerY" id="ghr-0I-cq8"/>
                             <constraint firstAttribute="trailing" secondItem="JXx-sf-1b5" secondAttribute="trailing" id="gko-3z-a5I"/>
+                            <constraint firstItem="1Cf-xw-sos" firstAttribute="centerX" secondItem="FHa-kR-kZi" secondAttribute="centerX" id="pqK-AV-Fn9"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" id="ax6-wj-h2x"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="1Cf-xw-sos" id="Dv1-Bv-phB"/>
                         <outlet property="collectionView" destination="KxL-Jv-XxV" id="c96-UI-Zk5"/>
                         <outlet property="favoritesButton" destination="49I-Tw-gk4" id="yXt-cr-B1S"/>
                         <outlet property="searchBar" destination="1DU-gW-dse" id="vmR-VQ-GDB"/>
