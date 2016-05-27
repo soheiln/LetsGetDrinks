@@ -10,12 +10,13 @@ import Foundation
 
 class Constants {
     
-    struct YelpAPI {
-        static let methodURL = "https://api.yelp.com/v2/search?term=bar&cll="
-        static let consumerKey = "O_bBt7tm49oMKjn7YG4NXw"
-        static let consumerSecret = "StI9V-2aGxiJtrPZx6JnhHCKWlo"
-        static let token = "73xdOlAkjeCDWWFQnTo2MzCHezKqFutf"
-        static let tokenSecret = "cap8_wQEuteT3hZSTecifSk0Yzs"
+    struct GoogleAPI {
+        static let placeSearchMethodURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+        static let placeDetailsMethodURL = "https://maps.googleapis.com/maps/api/place/details/json?"
+        static let placePhotoMethodURL = "https://maps.googleapis.com/maps/api/place/photo?"
+        static let apiKey = "AIzaSyA1v2rLQh-NJ1lFzRtrb5jHVZO_uJ5DObc"
+        static let radiusOfSearch = "50000"
+        static let photoMaxWidth = "400"
     }
     
     struct CollectionView {

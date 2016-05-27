@@ -23,7 +23,7 @@ class UIUtilities {
     }
     
     // modally presents an overlay 'location details' view
-    static func showLocationDetailsOverlay(callerViewController vc: UIViewController, location: Location, completionHandler: (()->Void)) {
+    static func showVenueDetailsOverlay(callerViewController vc: UIViewController, venue: Venue, completionHandler: (()->Void)) {
         
     }
 

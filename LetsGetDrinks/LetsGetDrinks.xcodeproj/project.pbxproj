@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		18764AA21CF5FF8F009F6A17 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA11CF5FF8F009F6A17 /* UIUtilities.swift */; };
-		18764AA61CF600CD009F6A17 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA51CF600CD009F6A17 /* Location.swift */; };
-		18764AA81CF600E9009F6A17 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA71CF600E9009F6A17 /* Map.swift */; };
+		18764AA61CF600CD009F6A17 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA51CF600CD009F6A17 /* Venue.swift */; };
 		18764AAA1CF74C16009F6A17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA91CF74C16009F6A17 /* Constants.swift */; };
-		18764AAC1CF74C1F009F6A17 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AAB1CF74C1F009F6A17 /* YelpClient.swift */; };
+		18764AAC1CF74C1F009F6A17 /* GoogleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AAB1CF74C1F009F6A17 /* GoogleClient.swift */; };
 		18F1454F1CF5210500014AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1454E1CF5210500014AB1 /* AppDelegate.swift */; };
 		18F145511CF5210500014AB1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F145501CF5210500014AB1 /* MapViewController.swift */; };
 		18F145541CF5210500014AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F145521CF5210500014AB1 /* Main.storyboard */; };
@@ -43,10 +42,9 @@
 
 /* Begin PBXFileReference section */
 		18764AA11CF5FF8F009F6A17 /* UIUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
-		18764AA51CF600CD009F6A17 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		18764AA71CF600E9009F6A17 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		18764AA51CF600CD009F6A17 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		18764AA91CF74C16009F6A17 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		18764AAB1CF74C1F009F6A17 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
+		18764AAB1CF74C1F009F6A17 /* GoogleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleClient.swift; sourceTree = "<group>"; };
 		18F1454B1CF5210500014AB1 /* LetsGetDrinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGetDrinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F1454E1CF5210500014AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18F145501CF5210500014AB1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = LetsGetDrinks/MapViewController.swift; sourceTree = "<group>"; };
@@ -147,10 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				18F145811CF521D600014AB1 /* CoreDataStack.swift */,
-				18764AA51CF600CD009F6A17 /* Location.swift */,
-				18764AA71CF600E9009F6A17 /* Map.swift */,
+				18764AA51CF600CD009F6A17 /* Venue.swift */,
 				18764AA91CF74C16009F6A17 /* Constants.swift */,
-				18764AAB1CF74C1F009F6A17 /* YelpClient.swift */,
+				18764AAB1CF74C1F009F6A17 /* GoogleClient.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -296,15 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18764AAC1CF74C1F009F6A17 /* YelpClient.swift in Sources */,
+				18764AAC1CF74C1F009F6A17 /* GoogleClient.swift in Sources */,
 				18F145511CF5210500014AB1 /* MapViewController.swift in Sources */,
 				18F145571CF5210500014AB1 /* LetsGetDrinks.xcdatamodeld in Sources */,
-				18764AA81CF600E9009F6A17 /* Map.swift in Sources */,
 				18F1454F1CF5210500014AB1 /* AppDelegate.swift in Sources */,
 				18F145821CF521D600014AB1 /* CoreDataStack.swift in Sources */,
 				18764AA21CF5FF8F009F6A17 /* UIUtilities.swift in Sources */,
 				18F145841CF52ACA00014AB1 /* CollectionViewController.swift in Sources */,
-				18764AA61CF600CD009F6A17 /* Location.swift in Sources */,
+				18764AA61CF600CD009F6A17 /* Venue.swift in Sources */,
 				18764AAA1CF74C16009F6A17 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

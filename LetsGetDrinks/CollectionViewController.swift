@@ -19,9 +19,18 @@ class CollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        initView()
     }
     
+    
+    func initView() {
+        hideActivityIndicator()
+        //TODO
+        GoogleClient.getVenuesNearLocation(callerViewController: self, latitude: 37.7749, longitude: -122.4194, errorHandler: nil,  completionHandler: { venue in
+            
+            
+        })
+    }
     
     @IBAction func favoritesButtonPressed(sender: AnyObject) {
     }
