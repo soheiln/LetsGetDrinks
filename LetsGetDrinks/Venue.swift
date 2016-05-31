@@ -15,6 +15,9 @@ class Venue: NSManagedObject {
     @NSManaged var phone: String!
     @NSManaged var address: String!
     @NSManaged var photo: NSData!
+    @NSManaged var latitude: NSNumber!
+    @NSManaged var longitude: NSNumber!
+
     
     convenience init(context: NSManagedObjectContext) {
         if let ent = NSEntityDescription.entityForName("Venue", inManagedObjectContext: context) {

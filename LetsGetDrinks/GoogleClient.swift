@@ -135,8 +135,12 @@ class GoogleClient {
             
             let json = parsedResult as! [String: AnyObject]
             let result = json["result"] as! [String: AnyObject]
+            let geometry = result["geometry"] as! [String: AnyObject]
+            let location = geometry["location"] as! [String: AnyObject]
             venue.address = result["formatted_address"] as! String
             venue.phone = result["formatted_phone_number"] as! String
+            venue.latitude = location["lat"] as! Double
+            venue.longitude = location["lng"] as! Double
             let photos = result["photos"] as! [[String: AnyObject]]
             if photos.count > 0 {
                 let photo = photos[0]

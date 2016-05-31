@@ -13,6 +13,7 @@ class CoreDataStack {
     
     // App wide variables
     //TODO: add
+    var venues = [Venue]()
     
     // singleton design
     static var instance: CoreDataStack!

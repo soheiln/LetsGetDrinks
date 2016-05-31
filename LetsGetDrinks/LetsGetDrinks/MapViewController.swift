@@ -36,6 +36,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
 
     @IBAction func favoritesButtonPressed(sender: AnyObject) {
+        //TODO remove:
+        showVenuesOnMap()
     }
     
 
@@ -53,6 +55,25 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // loads all the data from persistent memory
     func loadData() {
         // check if the data is already loaded, if not load
+    }
+
+    
+    // show the already loaded venues as annotations on the map
+    func showVenuesOnMap() {
+        let venues = CoreDataStack.sharedInstance().venues
+        for venue in venues {
+            showVenueOnMap(venue)
+        }
+    }
+    
+    
+    // Shows a single Pin object on map
+    func showVenueOnMap(venue: Venue) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate.latitude = CLLocationDegrees(venue.latitude)
+        annotation.coordinate.longitude = CLLocationDegrees(venue.longitude)
+        mapView.addAnnotation(annotation)
+        
     }
 
 }

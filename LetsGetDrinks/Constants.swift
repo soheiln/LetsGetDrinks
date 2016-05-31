@@ -15,7 +15,7 @@ class Constants {
         static let placeDetailsMethodURL = "https://maps.googleapis.com/maps/api/place/details/json?"
         static let placePhotoMethodURL = "https://maps.googleapis.com/maps/api/place/photo?"
         static let apiKey = "AIzaSyA1v2rLQh-NJ1lFzRtrb5jHVZO_uJ5DObc"
-        static let radiusOfSearch = "50000"
+        static let radiusOfSearch = "2000"
         static let photoMaxWidth = "400"
     }
     
