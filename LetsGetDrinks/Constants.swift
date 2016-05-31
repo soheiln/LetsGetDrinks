@@ -24,6 +24,12 @@ class Constants {
         static let NumSectionsInLandscapeMode = 4.0
         static let SpaceBetweenSections = 3.0
     }
+    
+    struct MapView {
+        static let latitudeRegion = 0.02
+        static let longitudeRegion = 0.02
+    }
+    
     static let num_photos_in_new_collection = 16
     static let MinimumPressDuration = 1.0
     

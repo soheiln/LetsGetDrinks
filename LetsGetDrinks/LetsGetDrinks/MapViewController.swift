@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var context: NSManagedObjectContext!
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func favoritesButtonPressed(sender: AnyObject) {
         //TODO remove:
         showVenuesOnMap()
+        showUserLocationOnMap()
     }
     
 
@@ -75,6 +77,52 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(annotation)
         
     }
+    
+    
+    
+    func showUserLocationOnMap() {
+        if (CLLocationManager.locationServicesEnabled()) {
+            mapView.showsUserLocation = true
+
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            if CLLocationManager.authorizationStatus() == .NotDetermined {
+                locationManager.requestAlwaysAuthorization()
+            } else {
+                //TODO: check
+                locationManager.requestLocation()
+            }
+
+        }
+    }
 
 }
 
+
+// MARK: - CLLocationManager Delegate
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last! as CLLocation
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        // TODO: update
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: Constants.MapView.latitudeRegion, longitudeDelta: Constants.MapView.longitudeRegion))
+        mapView.setRegion(region, animated: true)
+    }
+    
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        //TODO:
+        print("Failed getting location.")
+    }
+    
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        //TODO:
+        print("Authorization status changed.")
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+            locationManager.requestLocation()
+            mapView.showsUserLocation = true
+            // ...
+        }
+    }
+}

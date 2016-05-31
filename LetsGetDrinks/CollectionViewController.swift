@@ -37,7 +37,6 @@ class CollectionViewController: UIViewController {
         hideActivityIndicator()
         collectionView.dataSource = self
         collectionView.delegate = self
-//        fetchedResultsController.delegate = self
         context = CoreDataStack.sharedInstance().managedObjectContext
         initCollectionView()
         initFetchedResultsController()
@@ -65,10 +64,7 @@ class CollectionViewController: UIViewController {
 
     
     @IBAction func favoritesButtonPressed(sender: AnyObject) {
-        //TODO: check
-//        showVenuesInCollectionView()
         
-
     }
     
     
@@ -87,8 +83,6 @@ class CollectionViewController: UIViewController {
     // Loads the collection view with loaded venues
     func initFetchedResultsController() {
         let fetchRequest = NSFetchRequest(entityName: "Venue")
-//        let predicate = NSPredicate(format: "pin = %@", argumentArray: [pin])
-//        fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latitude", ascending: false)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
