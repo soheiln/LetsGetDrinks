@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Map View-->
@@ -138,21 +139,44 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KxL-Jv-XxV" userLabel="collectionView">
                                 <rect key="frame" x="0.0" y="80" width="600" height="471"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ops-XI-IMj">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ops-XI-IMj" userLabel="flowLayout">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="L4U-V7-olV">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VenueCollectionViewCell" id="L4U-V7-olV" customClass="VenueCollectionViewCell" customModule="LetsGetDrinks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RAr-mB-2Tu" userLabel="imageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfm-rO-fat" userLabel="label">
+                                                    <rect key="frame" x="4" y="18" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="Zfm-rO-fat" firstAttribute="centerX" secondItem="L4U-V7-olV" secondAttribute="centerX" id="GB5-T0-cXO"/>
+                                            <constraint firstItem="Zfm-rO-fat" firstAttribute="top" secondItem="L4U-V7-olV" secondAttribute="topMargin" constant="10" id="JDQ-Hc-V2E"/>
+                                            <constraint firstItem="RAr-mB-2Tu" firstAttribute="leading" secondItem="L4U-V7-olV" secondAttribute="leading" id="KdQ-YP-nHq"/>
+                                            <constraint firstItem="RAr-mB-2Tu" firstAttribute="top" secondItem="L4U-V7-olV" secondAttribute="top" id="aXj-bo-9Zf"/>
+                                            <constraint firstAttribute="bottom" secondItem="RAr-mB-2Tu" secondAttribute="bottom" id="lRn-9t-jYF"/>
+                                            <constraint firstAttribute="trailing" secondItem="RAr-mB-2Tu" secondAttribute="trailing" id="mHM-jE-AjP"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="RAr-mB-2Tu" id="sZy-59-lom"/>
+                                            <outlet property="label" destination="Zfm-rO-fat" id="U8Q-7c-n8P"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -179,6 +203,7 @@
                         <outlet property="activityIndicator" destination="1Cf-xw-sos" id="Dv1-Bv-phB"/>
                         <outlet property="collectionView" destination="KxL-Jv-XxV" id="c96-UI-Zk5"/>
                         <outlet property="favoritesButton" destination="49I-Tw-gk4" id="yXt-cr-B1S"/>
+                        <outlet property="flowLayout" destination="Ops-XI-IMj" id="71q-wK-OgY"/>
                         <outlet property="searchBar" destination="1DU-gW-dse" id="vmR-VQ-GDB"/>
                     </connections>
                 </viewController>
