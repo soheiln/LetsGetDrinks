@@ -14,7 +14,7 @@ class Constants {
         static let placeSearchMethodURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
         static let placeDetailsMethodURL = "https://maps.googleapis.com/maps/api/place/details/json?"
         static let placePhotoMethodURL = "https://maps.googleapis.com/maps/api/place/photo?"
-        static let apiKey = "AIzaSyA1v2rLQh-NJ1lFzRtrb5jHVZO_uJ5DObc"
+        static let apiKey = "AIzaSyCQiyl_3AwuMNK36HP7mQmwWeoNjskcbfs"
         static let radiusOfSearch = "2000"
         static let photoMaxWidth = "400"
     }
@@ -28,6 +28,11 @@ class Constants {
     struct MapView {
         static let latitudeRegion = 0.02
         static let longitudeRegion = 0.02
+    }
+    
+    struct OverlayView {
+        static let horizontalPadding = 60.0
+        static let verticalPadding = 120.0
     }
     
     static let num_photos_in_new_collection = 16

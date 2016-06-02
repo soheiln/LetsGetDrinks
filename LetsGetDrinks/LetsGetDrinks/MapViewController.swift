@@ -32,14 +32,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         context = CoreDataStack.sharedInstance().managedObjectContext
         hideActivityIndicator()
         loadData()
+        showUserLocationOnMap()
         // TODO
     }
     
 
     @IBAction func favoritesButtonPressed(sender: AnyObject) {
         //TODO remove:
-        showVenuesOnMap()
-        showUserLocationOnMap()
+//        showVenuesOnMap()
+        
+        let testVenue = Venue(context: context)
+        testVenue.name = "Name"
+        testVenue.address = "Address"
+        testVenue.phone = "Phone"
+        let overlayVC = OverlayViewController(parentViewController: self, venue: testVenue)
+        overlayVC.showView()
+
     }
     
 
@@ -83,16 +91,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func showUserLocationOnMap() {
         if (CLLocationManager.locationServicesEnabled()) {
             mapView.showsUserLocation = true
-
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             if CLLocationManager.authorizationStatus() == .NotDetermined {
                 locationManager.requestAlwaysAuthorization()
             } else {
-                //TODO: check
                 locationManager.requestLocation()
             }
-
         }
     }
 
@@ -117,12 +122,9 @@ extension MapViewController: CLLocationManagerDelegate {
     
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        //TODO:
-        print("Authorization status changed.")
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             locationManager.requestLocation()
             mapView.showsUserLocation = true
-            // ...
         }
     }
 }
