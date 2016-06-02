@@ -19,6 +19,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     var context: NSManagedObjectContext!
     var locationManager = CLLocationManager()
+    var userLocation: CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,20 +34,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         hideActivityIndicator()
         loadData()
         showUserLocationOnMap()
+        showVenuesOnMap()
         // TODO
     }
     
 
     @IBAction func favoritesButtonPressed(sender: AnyObject) {
-        //TODO remove:
-//        showVenuesOnMap()
-        
-        let testVenue = Venue(context: context)
-        testVenue.name = "Name"
-        testVenue.address = "Address"
-        testVenue.phone = "Phone"
-        let overlayVC = OverlayViewController(parentViewController: self, venue: testVenue)
-        overlayVC.showView()
+        showVenuesOnMap()
+        //TODO: update
+//        let testVenue = Venue(context: context)
+//        testVenue.name = "Name"
+//        testVenue.address = "Address"
+//        testVenue.phone = "Phone"
+//        let overlayVC = OverlayViewController(parentViewController: self, venue: testVenue)
+//        overlayVC.showView()
 
     }
     
@@ -65,6 +66,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // loads all the data from persistent memory
     func loadData() {
         // check if the data is already loaded, if not load
+//        let lat = userLocation.coordinate.latitude
+//        let lon = userLocation.coordinate.longitude
+//        TODO: remove
+        GoogleClient.getVenuesNearLocation(callerViewController: self, latitude: 37.7749, longitude: -122.4194, errorHandler: nil,  completionHandler: { venue in
+            print(venue)
+            CoreDataStack.sharedInstance().venues.append(venue)
+        })
+
     }
 
     
@@ -79,7 +88,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     // Shows a single Pin object on map
     func showVenueOnMap(venue: Venue) {
-        let annotation = MKPointAnnotation()
+        let annotation = PinAnnotation()
+        annotation.venue = venue
         annotation.coordinate.latitude = CLLocationDegrees(venue.latitude)
         annotation.coordinate.longitude = CLLocationDegrees(venue.longitude)
         mapView.addAnnotation(annotation)
@@ -108,6 +118,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last! as CLLocation
+        userLocation = location
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         // TODO: update
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: Constants.MapView.latitudeRegion, longitudeDelta: Constants.MapView.longitudeRegion))
@@ -127,4 +138,25 @@ extension MapViewController: CLLocationManagerDelegate {
             mapView.showsUserLocation = true
         }
     }
+    
+}
+
+
+// pin selection handlers
+extension MapViewController {
+    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
+        mapView.deselectAnnotation(view.annotation, animated: false)
+        CoreDataStack.sharedInstance().currentAnnotation = nil
+        CoreDataStack.sharedInstance().currentVenue = nil
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        let pinAnnotation = view.annotation as! PinAnnotation
+        mapView.deselectAnnotation(pinAnnotation, animated: false)
+        CoreDataStack.sharedInstance().currentAnnotation = pinAnnotation
+        CoreDataStack.sharedInstance().currentVenue = pinAnnotation.venue
+        let overlayVC = OverlayViewController(parentViewController: self, venue: pinAnnotation.venue)
+        overlayVC.showView()
+    }
+
 }

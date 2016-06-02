@@ -13,8 +13,10 @@ import CoreLocation
 class CoreDataStack {
     
     // App wide variables
-    //TODO: add
     var venues = [Venue]()
+    var currentVenue: Venue!
+    var currentAnnotation: PinAnnotation!
+
     
     // singleton design
     static var instance: CoreDataStack!

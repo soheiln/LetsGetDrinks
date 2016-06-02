@@ -41,11 +41,6 @@ class CollectionViewController: UIViewController {
         initCollectionView()
         initFetchedResultsController()
         
-        //TODO: remove
-//        GoogleClient.getVenuesNearLocation(callerViewController: self, latitude: 37.7749, longitude: -122.4194, errorHandler: nil,  completionHandler: { venue in
-//            print(venue)
-//            CoreDataStack.sharedInstance().venues.append(venue)
-//        })
     }
     
     
@@ -64,19 +59,13 @@ class CollectionViewController: UIViewController {
 
     
     @IBAction func favoritesButtonPressed(sender: AnyObject) {
-        //TODO: remove after testing
         
-//        let viewRect2 = CGRect(x: 10,y: 10,width: 300,height: 300)
-//        let overlayVC = OverlayViewController()
-//        overlayVC.view.frame = viewRect2
-//        self.view.addSubview(overlayVC.view)
-        
-        let testVenue = Venue(context: context)
-        testVenue.name = "Name"
-        testVenue.address = "Address"
-        testVenue.phone = "Phone"
-        let overlayVC = OverlayViewController(parentViewController: self, venue: testVenue)
-        overlayVC.showView()
+//        let testVenue = Venue(context: context)
+//        testVenue.name = "Name"
+//        testVenue.address = "Address"
+//        testVenue.phone = "Phone"
+//        let overlayVC = OverlayViewController(parentViewController: self, venue: testVenue)
+//        overlayVC.showView()
     }
     
     
@@ -153,8 +142,9 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! VenueCollectionViewCell
-        //TODO
-        
+        let venue = cell.venue
+        let overlayVC = OverlayViewController(parentViewController: self, venue: venue)
+        overlayVC.showView()
     }
     
 }

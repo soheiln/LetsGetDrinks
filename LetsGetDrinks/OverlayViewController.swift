@@ -35,8 +35,11 @@ class OverlayViewController: UIViewController {
         addressLabel.text = venue.address
         phoneLabel.text = venue.phone
         
-        imageView.image = UIImage(named: "no_image_available") //TODO: remove
-        //TODO
+        if let photo = venue.photo {
+            imageView.image = UIImage(data: photo)
+        } else {
+            imageView.image = UIImage(named: "no_image_available")
+        }
     }
     
     func showView() {
