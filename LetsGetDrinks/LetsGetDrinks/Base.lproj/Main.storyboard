@@ -211,18 +211,18 @@
             </objects>
             <point key="canvasLocation" x="45" y="270"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Portrait Tab Bar Controller-->
         <scene sceneID="9Yx-Mn-5L2">
             <objects>
-                <tabBarController id="fNA-qE-lYl" sceneMemberID="viewController">
+                <tabBarController id="fNA-qE-lYl" customClass="PortraitTabBarController" customModule="LetsGetDrinks" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="OMd-CD-qHC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="EeQ-E9-fNa" kind="relationship" relationship="viewControllers" id="Px3-8K-vpp"/>
                         <segue destination="kLD-hB-0QZ" kind="relationship" relationship="viewControllers" id="j9S-qt-0qW"/>
+                        <segue destination="EeQ-E9-fNa" kind="relationship" relationship="viewControllers" id="Px3-8K-vpp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDU-7d-A0l" userLabel="First Responder" sceneMemberID="firstResponder"/>

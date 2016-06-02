@@ -14,6 +14,7 @@
 		18764AAE1CFE0C74009F6A17 /* VenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AAD1CFE0C74009F6A17 /* VenueCollectionViewCell.swift */; };
 		18D505871CFF9F7C00AFB986 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D505851CFF9F7C00AFB986 /* OverlayViewController.swift */; };
 		18D505881CFF9F7C00AFB986 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D505861CFF9F7C00AFB986 /* OverlayViewController.xib */; };
+		18D5058C1D00936800AFB986 /* PortraitTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5058B1D00936800AFB986 /* PortraitTabBarController.swift */; };
 		18F1454F1CF5210500014AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1454E1CF5210500014AB1 /* AppDelegate.swift */; };
 		18F145511CF5210500014AB1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F145501CF5210500014AB1 /* MapViewController.swift */; };
 		18F145541CF5210500014AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F145521CF5210500014AB1 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		18764AAD1CFE0C74009F6A17 /* VenueCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCollectionViewCell.swift; sourceTree = "<group>"; };
 		18D505851CFF9F7C00AFB986 /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		18D505861CFF9F7C00AFB986 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
+		18D5058B1D00936800AFB986 /* PortraitTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortraitTabBarController.swift; sourceTree = "<group>"; };
 		18F1454B1CF5210500014AB1 /* LetsGetDrinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGetDrinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F1454E1CF5210500014AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18F145501CF5210500014AB1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = LetsGetDrinks/MapViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				18F145831CF52ACA00014AB1 /* CollectionViewController.swift */,
 				18764AA11CF5FF8F009F6A17 /* UIUtilities.swift */,
 				18764AAD1CFE0C74009F6A17 /* VenueCollectionViewCell.swift */,
+				18D5058B1D00936800AFB986 /* PortraitTabBarController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				18D505871CFF9F7C00AFB986 /* OverlayViewController.swift in Sources */,
 				18F145841CF52ACA00014AB1 /* CollectionViewController.swift in Sources */,
 				18764AA61CF600CD009F6A17 /* Venue.swift in Sources */,
+				18D5058C1D00936800AFB986 /* PortraitTabBarController.swift in Sources */,
 				18764AAA1CF74C16009F6A17 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
