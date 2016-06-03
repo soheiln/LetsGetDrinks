@@ -59,7 +59,7 @@ class Venue: NSManagedObject {
     }
     
     
-    // a venue is favorited by adding it to the main context
+    // a venue is favorited by adding it to the main context and removing from scratch context
     func addToFavorites() {
         if isFavorite() {
             // already favorite, no action needed
@@ -69,6 +69,8 @@ class Venue: NSManagedObject {
             let favoritesContext = CoreDataStack.sharedInstance().managedObjectContext
             let venue = Venue(venue: self, context: favoritesContext)
             CoreDataStack.sharedInstance().favorites.append(venue) // add to CoreDataStack.sharedInstance().favorites for now
+            // remove from scratch
+            self.managedObjectContext?.deleteObject(self)
         }
     }
     
