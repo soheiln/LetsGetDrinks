@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		18764AA21CF5FF8F009F6A17 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA11CF5FF8F009F6A17 /* UIUtilities.swift */; };
-		18764AA61CF600CD009F6A17 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA51CF600CD009F6A17 /* Venue.swift */; };
 		18764AAA1CF74C16009F6A17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA91CF74C16009F6A17 /* Constants.swift */; };
 		18764AAC1CF74C1F009F6A17 /* GoogleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AAB1CF74C1F009F6A17 /* GoogleClient.swift */; };
 		18764AAE1CFE0C74009F6A17 /* VenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AAD1CFE0C74009F6A17 /* VenueCollectionViewCell.swift */; };
@@ -16,6 +15,9 @@
 		18D505881CFF9F7C00AFB986 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D505861CFF9F7C00AFB986 /* OverlayViewController.xib */; };
 		18D5058C1D00936800AFB986 /* PortraitTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5058B1D00936800AFB986 /* PortraitTabBarController.swift */; };
 		18D5058E1D00AB0500AFB986 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5058D1D00AB0500AFB986 /* PinAnnotation.swift */; };
+		18D505901D00D87900AFB986 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5058F1D00D87900AFB986 /* Favorites.swift */; };
+		18D505921D01080700AFB986 /* FavoritesContextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D505911D01080700AFB986 /* FavoritesContextDelegate.swift */; };
+		18D505941D01FCCC00AFB986 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D505931D01FCCC00AFB986 /* Venue.swift */; };
 		18F1454F1CF5210500014AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1454E1CF5210500014AB1 /* AppDelegate.swift */; };
 		18F145511CF5210500014AB1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F145501CF5210500014AB1 /* MapViewController.swift */; };
 		18F145541CF5210500014AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F145521CF5210500014AB1 /* Main.storyboard */; };
@@ -47,7 +49,6 @@
 
 /* Begin PBXFileReference section */
 		18764AA11CF5FF8F009F6A17 /* UIUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
-		18764AA51CF600CD009F6A17 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		18764AA91CF74C16009F6A17 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18764AAB1CF74C1F009F6A17 /* GoogleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleClient.swift; sourceTree = "<group>"; };
 		18764AAD1CFE0C74009F6A17 /* VenueCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -55,6 +56,9 @@
 		18D505861CFF9F7C00AFB986 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		18D5058B1D00936800AFB986 /* PortraitTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortraitTabBarController.swift; sourceTree = "<group>"; };
 		18D5058D1D00AB0500AFB986 /* PinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
+		18D5058F1D00D87900AFB986 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		18D505911D01080700AFB986 /* FavoritesContextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesContextDelegate.swift; sourceTree = "<group>"; };
+		18D505931D01FCCC00AFB986 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		18F1454B1CF5210500014AB1 /* LetsGetDrinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGetDrinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F1454E1CF5210500014AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18F145501CF5210500014AB1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = LetsGetDrinks/MapViewController.swift; sourceTree = "<group>"; };
@@ -163,10 +167,12 @@
 		18F1457F1CF5219000014AB1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				18F145811CF521D600014AB1 /* CoreDataStack.swift */,
-				18764AA51CF600CD009F6A17 /* Venue.swift */,
 				18764AA91CF74C16009F6A17 /* Constants.swift */,
+				18F145811CF521D600014AB1 /* CoreDataStack.swift */,
+				18D5058F1D00D87900AFB986 /* Favorites.swift */,
 				18764AAB1CF74C1F009F6A17 /* GoogleClient.swift */,
+				18D505931D01FCCC00AFB986 /* Venue.swift */,
+				18D505911D01080700AFB986 /* FavoritesContextDelegate.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18764AAC1CF74C1F009F6A17 /* GoogleClient.swift in Sources */,
+				18D505941D01FCCC00AFB986 /* Venue.swift in Sources */,
 				18F145511CF5210500014AB1 /* MapViewController.swift in Sources */,
 				18764AAE1CFE0C74009F6A17 /* VenueCollectionViewCell.swift in Sources */,
 				18F145571CF5210500014AB1 /* LetsGetDrinks.xcdatamodeld in Sources */,
@@ -327,7 +334,8 @@
 				18764AA21CF5FF8F009F6A17 /* UIUtilities.swift in Sources */,
 				18D505871CFF9F7C00AFB986 /* OverlayViewController.swift in Sources */,
 				18F145841CF52ACA00014AB1 /* CollectionViewController.swift in Sources */,
-				18764AA61CF600CD009F6A17 /* Venue.swift in Sources */,
+				18D505921D01080700AFB986 /* FavoritesContextDelegate.swift in Sources */,
+				18D505901D00D87900AFB986 /* Favorites.swift in Sources */,
 				18D5058C1D00936800AFB986 /* PortraitTabBarController.swift in Sources */,
 				18764AAA1CF74C16009F6A17 /* Constants.swift in Sources */,
 			);

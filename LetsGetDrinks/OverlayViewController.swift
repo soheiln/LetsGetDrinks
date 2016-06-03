@@ -16,8 +16,12 @@ class OverlayViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var uberButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    var favoriteFlag: Bool!
     var parentVC: UIViewController!
     var tintView: UIView!
+    var venue: Venue!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,7 @@ class OverlayViewController: UIViewController {
         self.init()
         _ = self.view // call to self.view to initialize all view elements and outlets
         parentVC = parentViewController
+        self.venue = venue
         if let photo = venue.photo {
             imageView.image = UIImage(data: photo)
         }
@@ -40,6 +45,13 @@ class OverlayViewController: UIViewController {
         } else {
             imageView.image = UIImage(named: "no_image_available")
         }
+        
+        favoriteFlag = venue.isFavorite()
+        if favoriteFlag! {
+            favoriteButton.setImage(UIImage(named: "star-solid"), forState: UIControlState.Normal)
+        }
+        
+
     }
     
     func showView() {
@@ -78,7 +90,36 @@ class OverlayViewController: UIViewController {
         parentVC.view.subviews.last?.removeFromSuperview()
         
         self.removeFromParentViewController()
+        
+        // update favorite subscription based on favoriteFlag
+        handleFavoriteSubscription()
     }
     
-
+    
+    @IBAction func uberButtonPressed(sender: AnyObject) {
+    }
+    
+    
+    @IBAction func favoriteButtonPressed(sender: AnyObject) {
+        if !favoriteFlag! {
+            // save venue to favorites
+            favoriteButton.setImage(UIImage(named: "star-solid"), forState: UIControlState.Normal)
+            favoriteFlag = true
+        } else {
+            // remove from favorites
+            favoriteButton.setImage(UIImage(named: "star-empty"), forState: UIControlState.Normal)
+            favoriteFlag = false
+        }
+        
+        
+    }
+    
+    func handleFavoriteSubscription() {
+        if favoriteFlag! {
+            venue.addToFavorites()
+        } else {
+            venue.removeFromFavorites()
+        }
+    }
+    
 }

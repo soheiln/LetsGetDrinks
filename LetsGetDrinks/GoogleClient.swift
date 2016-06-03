@@ -16,6 +16,7 @@ class GoogleClient {
         
         // Configure HTTP request
         let url = NSURL(string: Constants.GoogleAPI.placeSearchMethodURL + "key=" + Constants.GoogleAPI.apiKey + "&location=" + String(latitude) + "," + String(longitude) + "&radius=" + Constants.GoogleAPI.radiusOfSearch + "&type=bar")!
+        print(url) //todo: remove
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "GET"
         
@@ -75,7 +76,7 @@ class GoogleClient {
         for result in results {
             let name = result["name"] as! String
             let placeID = result["place_id"] as! String
-            let venue = Venue.init(context: CoreDataStack.sharedInstance().managedObjectContext) //TODO: update
+            let venue = Venue.init(context: CoreDataStack.sharedInstance().scratchContext) // objects are first created in scratchContext
             venue.name = name
             venue.placeID = placeID
             getDetailsForVenue(venue, callerViewController: vc, errorHandler: errorHandler, completionHandler: completionHandler)

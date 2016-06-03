@@ -35,6 +35,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         loadData()
         showUserLocationOnMap()
         showVenuesOnMap()
+        
+        setMapOnSF() //TODO: remove
+        
+//        todo: re-enable
+//        CoreDataStack.sharedInstance().autoSave(Constants.autoSaveDelayInSeconds, completionHandler: nil)
+
         // TODO
     }
     
@@ -137,6 +143,15 @@ extension MapViewController: CLLocationManagerDelegate {
             locationManager.requestLocation()
             mapView.showsUserLocation = true
         }
+    }
+    
+    //TODO: helper- remove after use
+    func setMapOnSF() {
+        let center = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194)
+        // TODO: update
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: Constants.MapView.latitudeRegion, longitudeDelta: Constants.MapView.longitudeRegion))
+        mapView.setRegion(region, animated: true)
+
     }
     
 }

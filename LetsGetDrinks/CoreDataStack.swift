@@ -14,9 +14,30 @@ class CoreDataStack {
     
     // App wide variables
     var venues = [Venue]()
+    var favorites = [Venue]()
     var currentVenue: Venue!
     var currentAnnotation: PinAnnotation!
-
+    
+    
+    lazy var frc: NSFetchedResultsController = {
+        let fetchRequest = NSFetchRequest(entityName: "Venue")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "placeID", ascending: false)]
+        let context = CoreDataStack.sharedInstance().managedObjectContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        //TODO:set delegate
+        frc.delegate = FavoritesFRCDelegate.sharedInstance()
+        return frc
+    }()
+    
+    
+    lazy var scratchFrc: NSFetchedResultsController = {
+        let fetchRequest = NSFetchRequest(entityName: "Venue")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "placeID", ascending: false)]
+        let scratchContext = CoreDataStack.sharedInstance().scratchContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: scratchContext, sectionNameKeyPath: nil, cacheName: nil)
+        return frc
+    }()
+    
     
     // singleton design
     static var instance: CoreDataStack!
@@ -26,6 +47,7 @@ class CoreDataStack {
         }
         return instance
     }
+
     
     // MARK: - Core Data stack
     
@@ -66,6 +88,7 @@ class CoreDataStack {
         return coordinator
     }()
     
+
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
@@ -73,7 +96,16 @@ class CoreDataStack {
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
+
     
+    // scratchContext is the child of main context
+    lazy var scratchContext: NSManagedObjectContext = {
+        let coordinator = self.persistentStoreCoordinator
+        var scratchContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        scratchContext.parentContext = CoreDataStack.sharedInstance().managedObjectContext
+        return scratchContext
+    }()
+
     // MARK: - Core Data Saving support
     
     func saveContext () {
@@ -107,4 +139,24 @@ class CoreDataStack {
         })
     }
     
+}
+
+
+extension CoreDataStack {
+    
+    // loads favorite venues from persistent memory and stores it in favorites property in CoreDataStack
+    func loadData() {
+        //TODO: test
+        let fetchRequest = NSFetchRequest(entityName: "Venue")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "placeID", ascending: false)]
+        let context = CoreDataStack.sharedInstance().managedObjectContext
+        frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            try frc.performFetch()
+        } catch {
+            print("Error while trying to perform a search: \n\(error)\n\(frc)")
+        }
+        CoreDataStack.sharedInstance().favorites = frc.fetchedObjects as! [Venue]
+    }
+
 }
