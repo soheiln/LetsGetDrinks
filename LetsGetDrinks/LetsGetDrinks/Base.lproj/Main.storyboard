@@ -28,22 +28,21 @@
                                             <action selector="favoritesButtonPressed:" destination="kLD-hB-0QZ" eventType="touchUpInside" id="1ee-wc-AOG"/>
                                         </connections>
                                     </button>
-                                    <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYW-Sd-gsk" userLabel="SearchBar">
-                                        <rect key="frame" x="20" y="0.0" width="478" height="60"/>
-                                        <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Drinks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGx-Ab-ysb">
+                                        <rect key="frame" x="239" y="19" width="122" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="ZYW-Sd-gsk" firstAttribute="trailing" secondItem="97s-po-yi5" secondAttribute="leading" constant="-20" id="HAD-mo-Qbc"/>
+                                    <constraint firstItem="GGx-Ab-ysb" firstAttribute="centerX" secondItem="NqO-CZ-lvb" secondAttribute="centerX" id="WMw-de-M4d"/>
                                     <constraint firstItem="97s-po-yi5" firstAttribute="leading" secondItem="NqO-CZ-lvb" secondAttribute="leading" constant="20" id="XOh-1w-Gt1"/>
                                     <constraint firstAttribute="height" constant="60" id="h8N-mk-vqh"/>
-                                    <constraint firstItem="ZYW-Sd-gsk" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="mNo-sA-Y1y"/>
-                                    <constraint firstItem="ZYW-Sd-gsk" firstAttribute="height" secondItem="NqO-CZ-lvb" secondAttribute="height" id="odK-oX-WCr"/>
                                     <constraint firstAttribute="trailing" secondItem="97s-po-yi5" secondAttribute="trailing" constant="20" id="r9a-K6-tLN"/>
                                     <constraint firstItem="97s-po-yi5" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="slu-mr-s2s"/>
-                                    <constraint firstItem="ZYW-Sd-gsk" firstAttribute="leading" secondItem="NqO-CZ-lvb" secondAttribute="leading" constant="20" id="zaa-EE-ASp"/>
+                                    <constraint firstItem="GGx-Ab-ysb" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="xyW-gX-DnJ"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -85,7 +84,6 @@
                         <outlet property="activityIndicator" destination="8yB-67-yyK" id="cH8-ID-Xra"/>
                         <outlet property="favoritesButton" destination="97s-po-yi5" id="Ohq-wQ-OBL"/>
                         <outlet property="mapView" destination="WS5-Ou-eMT" id="t4b-21-nMQ"/>
-                        <outlet property="searchBar" destination="ZYW-Sd-gsk" id="UJA-Xp-Ecr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpN-kR-IYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -108,34 +106,27 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49I-Tw-gk4" userLabel="favoritesButton">
-                                        <rect key="frame" x="542" y="15" width="28" height="30"/>
+                                        <rect key="frame" x="552" y="15" width="28" height="30"/>
                                         <state key="normal" image="star-empty"/>
                                         <connections>
                                             <action selector="favoritesButtonPressed:" destination="EeQ-E9-fNa" eventType="touchUpInside" id="3en-xe-c0e"/>
                                         </connections>
                                     </button>
-                                    <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1DU-gW-dse" userLabel="SearchBar">
-                                        <rect key="frame" x="20" y="0.0" width="468" height="60"/>
-                                        <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Drinks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIv-sI-0P8">
+                                        <rect key="frame" x="239" y="19" width="122" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="49I-Tw-gk4" secondAttribute="trailing" constant="30" id="3Es-xj-oHj"/>
-                                    <constraint firstItem="1DU-gW-dse" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="QCj-df-t5K"/>
-                                    <constraint firstAttribute="trailing" secondItem="1DU-gW-dse" secondAttribute="trailing" constant="120" id="g1u-ec-Ugk"/>
-                                    <constraint firstItem="1DU-gW-dse" firstAttribute="height" secondItem="JXx-sf-1b5" secondAttribute="height" id="pp2-5f-MvT"/>
-                                    <constraint firstItem="1DU-gW-dse" firstAttribute="leading" secondItem="JXx-sf-1b5" secondAttribute="leading" constant="20" id="r6G-OF-ejp"/>
-                                    <constraint firstItem="1DU-gW-dse" firstAttribute="trailing" secondItem="49I-Tw-gk4" secondAttribute="leading" constant="-20" id="vRZ-7t-g4d"/>
+                                    <constraint firstAttribute="trailing" secondItem="49I-Tw-gk4" secondAttribute="trailing" constant="20" id="3Es-xj-oHj"/>
+                                    <constraint firstItem="jIv-sI-0P8" firstAttribute="centerX" secondItem="JXx-sf-1b5" secondAttribute="centerX" id="5im-8K-pGw"/>
+                                    <constraint firstItem="jIv-sI-0P8" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="epd-Hi-aZR"/>
                                     <constraint firstItem="49I-Tw-gk4" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="wKe-7u-Gzz"/>
                                     <constraint firstAttribute="height" constant="60" id="xFO-gu-hVX"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="g1u-ec-Ugk"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KxL-Jv-XxV" userLabel="collectionView">
                                 <rect key="frame" x="0.0" y="80" width="600" height="471"/>
@@ -204,7 +195,6 @@
                         <outlet property="collectionView" destination="KxL-Jv-XxV" id="c96-UI-Zk5"/>
                         <outlet property="favoritesButton" destination="49I-Tw-gk4" id="yXt-cr-B1S"/>
                         <outlet property="flowLayout" destination="Ops-XI-IMj" id="71q-wK-OgY"/>
-                        <outlet property="searchBar" destination="1DU-gW-dse" id="vmR-VQ-GDB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIv-Jn-eiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
