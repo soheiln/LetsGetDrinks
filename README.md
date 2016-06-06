@@ -8,10 +8,10 @@ Selecting a venue allows you to see its information in an overlay view with opti
 
 The app provides map and collection views for scrolling through venues. Clicking the start icon at the top allows you to toggle between regular and favorites mode, which will only show venues which have previously been starred.
 
-![alt tag](https://github.com/soheiln/LetsGetDrinks/tree/master/Screenshots/screenshot1.png)
-![alt tag](https://github.com/soheiln/LetsGetDrinks/tree/master/Screenshots/screenshot2.png)
-![alt tag](https://github.com/soheiln/LetsGetDrinks/tree/master/Screenshots/screenshot3.png)
-![alt tag](https://github.com/soheiln/LetsGetDrinks/tree/master/Screenshots/screenshot4.png)
+![alt tag](https://raw.githubusercontent.com/soheiln/LetsGetDrinks/master/LetsGetDrinks/Screenshots/screenshot1.png)
+![alt tag](https://raw.githubusercontent.com/soheiln/LetsGetDrinks/master/LetsGetDrinks/Screenshots/screenshot2.png)
+![alt tag](https://raw.githubusercontent.com/soheiln/LetsGetDrinks/master/LetsGetDrinks/Screenshots/screenshot3.png)
+![alt tag](https://raw.githubusercontent.com/soheiln/LetsGetDrinks/master/LetsGetDrinks/Screenshots/screenshot4.png)
 
 # API Reference
 
