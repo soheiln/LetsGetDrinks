@@ -50,9 +50,17 @@ class OverlayViewController: UIViewController {
         if favoriteFlag! {
             favoriteButton.setImage(UIImage(named: "star-solid"), forState: UIControlState.Normal)
         }
-        
-
+        initView()
     }
+    
+    
+    func initView() {
+        nameLabel.adjustsFontSizeToFitWidth = true
+        addressLabel.adjustsFontSizeToFitWidth = true
+        addressLabel.numberOfLines = 2
+        phoneLabel.adjustsFontSizeToFitWidth = true
+    }
+    
     
     func showView() {
         let frame = parentVC.view.frame

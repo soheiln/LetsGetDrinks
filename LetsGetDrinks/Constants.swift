@@ -35,8 +35,8 @@ class Constants {
     }
     
     struct OverlayView {
-        static let horizontalPadding = 60.0
-        static let verticalPadding = 120.0
+        static let horizontalPadding = 30.0
+        static let verticalPadding = 80.0
     }
     
     static let num_photos_in_new_collection = 16
