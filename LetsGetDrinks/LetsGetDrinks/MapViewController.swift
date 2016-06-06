@@ -123,9 +123,11 @@ extension MapViewController: CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: Constants.MapView.latitudeRegion, longitudeDelta: Constants.MapView.longitudeRegion))
         mapView.setRegion(region, animated: true)
         GoogleClient.getVenuesNearLocation(callerViewController: self, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, errorHandler: nil,  completionHandler: { venue in
-            print(venue)
-            CoreDataStack.sharedInstance().venues.append(venue)
-            self.showVenueOnMap(venue)
+            dispatch_async(dispatch_get_main_queue()) {
+                print(venue)
+                CoreDataStack.sharedInstance().venues.append(venue)
+                self.showVenueOnMap(venue)
+            }            
         })
         hideActivityIndicator()
     }

@@ -68,9 +68,22 @@ class Venue: NSManagedObject {
             // create a new similar venue object in the main context
             let favoritesContext = CoreDataStack.sharedInstance().managedObjectContext
             let venue = Venue(venue: self, context: favoritesContext)
-            CoreDataStack.sharedInstance().favorites.append(venue) // add to CoreDataStack.sharedInstance().favorites for now
+            
+            // add to CoreDataStack.sharedInstance().favorites
+            CoreDataStack.sharedInstance().favorites.append(venue)
+            
+            // remove from CoreDataStack.sharedInstance().venues
+            var index = 0
+            for item in CoreDataStack.sharedInstance().venues {
+                if item.placeID == self.placeID {
+                    CoreDataStack.sharedInstance().venues.removeAtIndex(index)
+                }
+                index += 1
+            }
+
             // remove from scratch
             self.managedObjectContext?.deleteObject(self)
+            
         }
     }
     
