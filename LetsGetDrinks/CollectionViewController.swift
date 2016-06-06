@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CollectionViewController: UIViewController {
+class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
     
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -102,7 +102,7 @@ class CollectionViewController: UIViewController {
 
 }
 
-//TODO: refactor - move frc delegate to another class
+
 // MARK: - Fetched Results Controller Delegate
 extension CollectionViewController: NSFetchedResultsControllerDelegate {
     

@@ -26,7 +26,8 @@ class GoogleClient {
             // Handle error
             guard (error == nil) else {
                 dispatch_async(dispatch_get_main_queue()) {
-                    //TODO
+                    UIUtilities.showAlret(callerViewController: vc, message: "Failed to load nearby venues", completionHandler: nil)
+                    (vc as! ActivityIndicatorProtocol).hideActivityIndicator()
                 }
                 return
             }
@@ -34,7 +35,8 @@ class GoogleClient {
             // handle status code other than 2XX
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
                 dispatch_async(dispatch_get_main_queue()) {
-                    //TODO
+                    UIUtilities.showAlret(callerViewController: vc, message: "Failed to load nearby venues", completionHandler: nil)
+                    (vc as! ActivityIndicatorProtocol).hideActivityIndicator()
                 }
                 return
             }
@@ -42,7 +44,8 @@ class GoogleClient {
             // handle empty data
             guard let _ = data else {
                 dispatch_async(dispatch_get_main_queue()) {
-                    //TODO
+                    UIUtilities.showAlret(callerViewController: vc, message: "Failed to load nearby venues", completionHandler: nil)
+                    (vc as! ActivityIndicatorProtocol).hideActivityIndicator()
                 }
                 return
             }
@@ -66,7 +69,8 @@ class GoogleClient {
         } catch {
             print(error)
             dispatch_async(dispatch_get_main_queue()) {
-                //TODO
+                UIUtilities.showAlret(callerViewController: vc, message: "Failed to load nearby venues", completionHandler: nil)
+                (vc as! ActivityIndicatorProtocol).hideActivityIndicator()
             }
             return
         }
@@ -160,22 +164,12 @@ class GoogleClient {
             }
             completionHandler(venue)
             
-//            let photos = result["photos"] as! [[String: AnyObject]]
-//            if photos.count > 0 {
-//                let photo = photos[0]
-//                let photo_reference = photo["photo_reference"] as! String
-//                getPhotoForVenue(venue, photo_reference: photo_reference, callerViewController: vc, errorHandler: errorHandler, completionHandler: completionHandler)
-//            } else {
-//                //TODO: check
-//                completionHandler(venue)
-//            }
-            
         }
         task.resume()
     }
     
     
-    //TODO: add documentation
+    // loads the photo for the specific venue
     static func getPhotoForVenue(venue: Venue, photo_reference: String, callerViewController vc: UIViewController, errorHandler: (() -> Void)?, completionHandler: (Venue -> Void) ) {
         
         // Configure HTTP request

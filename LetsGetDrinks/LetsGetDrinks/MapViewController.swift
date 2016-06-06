@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorProtocol {
 
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -127,7 +127,7 @@ extension MapViewController: CLLocationManagerDelegate {
                 print(venue)
                 CoreDataStack.sharedInstance().venues.append(venue)
                 self.showVenueOnMap(venue)
-            }            
+            }
         })
         hideActivityIndicator()
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18610E451D061798007A048A /* ActivityIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18610E441D061798007A048A /* ActivityIndicatorProtocol.swift */; };
 		18764AA21CF5FF8F009F6A17 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA11CF5FF8F009F6A17 /* UIUtilities.swift */; };
 		18764AAA1CF74C16009F6A17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AA91CF74C16009F6A17 /* Constants.swift */; };
 		18764AAC1CF74C1F009F6A17 /* GoogleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18764AAB1CF74C1F009F6A17 /* GoogleClient.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18610E441D061798007A048A /* ActivityIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorProtocol.swift; sourceTree = "<group>"; };
 		18764AA11CF5FF8F009F6A17 /* UIUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		18764AA91CF74C16009F6A17 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18764AAB1CF74C1F009F6A17 /* GoogleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleClient.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				18D5058B1D00936800AFB986 /* PortraitTabBarController.swift */,
 				18D5058D1D00AB0500AFB986 /* PinAnnotation.swift */,
 				18D505911D01080700AFB986 /* FavoritesContextDelegate.swift */,
+				18610E441D061798007A048A /* ActivityIndicatorProtocol.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				18764AAE1CFE0C74009F6A17 /* VenueCollectionViewCell.swift in Sources */,
 				18F145571CF5210500014AB1 /* LetsGetDrinks.xcdatamodeld in Sources */,
 				18F1454F1CF5210500014AB1 /* AppDelegate.swift in Sources */,
+				18610E451D061798007A048A /* ActivityIndicatorProtocol.swift in Sources */,
 				18D5058E1D00AB0500AFB986 /* PinAnnotation.swift in Sources */,
 				18F145821CF521D600014AB1 /* CoreDataStack.swift in Sources */,
 				18764AA21CF5FF8F009F6A17 /* UIUtilities.swift in Sources */,
