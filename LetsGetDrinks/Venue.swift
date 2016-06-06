@@ -105,7 +105,7 @@ class Venue: NSManagedObject {
                 index += 1
             }
         } else {
-            var favorites = CoreDataStack.sharedInstance().favorites
+            let favorites = CoreDataStack.sharedInstance().favorites
             var index = 0
             for item in favorites {
                 if item.placeID == self.placeID {
