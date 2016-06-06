@@ -24,7 +24,6 @@ class CoreDataStack {
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "placeID", ascending: false)]
         let context = CoreDataStack.sharedInstance().managedObjectContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        //TODO:set delegate
         frc.delegate = FavoritesFRCDelegate.sharedInstance()
         return frc
     }()
@@ -146,7 +145,6 @@ extension CoreDataStack {
     
     // loads favorite venues from persistent memory and stores it in favorites property in CoreDataStack
     func loadData() {
-        //TODO: test
         let fetchRequest = NSFetchRequest(entityName: "Venue")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "placeID", ascending: false)]
         let context = CoreDataStack.sharedInstance().managedObjectContext

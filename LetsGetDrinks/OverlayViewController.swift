@@ -76,7 +76,6 @@ class OverlayViewController: UIViewController {
         // add both views to parent vc
         parentVC.view.addSubview(tintView)
         parentVC.view.addSubview(self.view)
-        
         self.didMoveToParentViewController(parentVC)
     }
 
@@ -93,10 +92,23 @@ class OverlayViewController: UIViewController {
         
         // update favorite subscription based on favoriteFlag
         handleFavoriteSubscription()
+        // save
+        CoreDataStack.sharedInstance().saveContext()
     }
     
     
     @IBAction func uberButtonPressed(sender: AnyObject) {
+        
+        let app = UIApplication.sharedApplication()
+        var url: NSURL!
+        if app.canOpenURL(NSURL(fileURLWithPath: "uber://")) {
+            // Uber app is installed, construct and open deep link.
+            url = UberClient.constructUberURLForLocation(venue, universalLink: false)
+        } else {
+            // No Uber app, open the mobile site.
+            url = UberClient.constructUberURLForLocation(venue, universalLink: true)
+        }
+        app.openURL(url)
     }
     
     

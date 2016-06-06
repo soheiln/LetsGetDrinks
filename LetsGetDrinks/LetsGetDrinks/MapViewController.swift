@@ -31,7 +31,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func initView() {
         mapView.delegate = self
         context = CoreDataStack.sharedInstance().managedObjectContext
-        hideActivityIndicator()
+        showActivityIndicator()
         loadData()
         showUserLocationOnMap()
         showVenuesOnMap()
@@ -75,10 +75,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 //        let lat = userLocation.coordinate.latitude
 //        let lon = userLocation.coordinate.longitude
 //        TODO: remove
-        GoogleClient.getVenuesNearLocation(callerViewController: self, latitude: 37.7749, longitude: -122.4194, errorHandler: nil,  completionHandler: { venue in
-            print(venue)
-            CoreDataStack.sharedInstance().venues.append(venue)
-        })
 
     }
 
@@ -123,12 +119,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 // MARK: - CLLocationManager Delegate
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //user location detected
         let location = locations.last! as CLLocation
         userLocation = location
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        // TODO: update
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: Constants.MapView.latitudeRegion, longitudeDelta: Constants.MapView.longitudeRegion))
         mapView.setRegion(region, animated: true)
+        GoogleClient.getVenuesNearLocation(callerViewController: self, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, errorHandler: nil,  completionHandler: { venue in
+            print(venue)
+            CoreDataStack.sharedInstance().venues.append(venue)
+            self.showVenueOnMap(venue)
+        })
+        hideActivityIndicator()
     }
     
     

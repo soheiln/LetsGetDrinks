@@ -138,19 +138,37 @@ class GoogleClient {
             let result = json["result"] as! [String: AnyObject]
             let geometry = result["geometry"] as! [String: AnyObject]
             let location = geometry["location"] as! [String: AnyObject]
-            venue.address = result["formatted_address"] as! String
-            venue.phone = result["formatted_phone_number"] as! String
+            if let address = result["formatted_address"] {
+                venue.address = address as! String
+            } else {
+                venue.address = "Address not available"
+            }
+            if let phone = result["formatted_phone_number"] {
+                venue.phone = phone as! String
+            } else {
+                venue.phone = "Phone not available"
+            }
             venue.latitude = location["lat"] as! Double
             venue.longitude = location["lng"] as! Double
-            let photos = result["photos"] as! [[String: AnyObject]]
-            if photos.count > 0 {
-                let photo = photos[0]
-                let photo_reference = photo["photo_reference"] as! String
-                getPhotoForVenue(venue, photo_reference: photo_reference, callerViewController: vc, errorHandler: errorHandler, completionHandler: completionHandler)
-            } else {
-                //TODO: check
-                completionHandler(venue)
+            if let photosResult = result["photos"] {
+                let photos = photosResult as! [[String: AnyObject]]
+                if photos.count > 0 {
+                    let photo = photos[0]
+                    let photo_reference = photo["photo_reference"] as! String
+                    getPhotoForVenue(venue, photo_reference: photo_reference, callerViewController: vc, errorHandler: errorHandler, completionHandler: completionHandler)
+                }
             }
+            completionHandler(venue)
+            
+//            let photos = result["photos"] as! [[String: AnyObject]]
+//            if photos.count > 0 {
+//                let photo = photos[0]
+//                let photo_reference = photo["photo_reference"] as! String
+//                getPhotoForVenue(venue, photo_reference: photo_reference, callerViewController: vc, errorHandler: errorHandler, completionHandler: completionHandler)
+//            } else {
+//                //TODO: check
+//                completionHandler(venue)
+//            }
             
         }
         task.resume()
