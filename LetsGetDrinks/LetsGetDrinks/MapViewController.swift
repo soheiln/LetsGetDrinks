@@ -17,6 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var favoriteMode: Bool!
     var context: NSManagedObjectContext!
     var locationManager = CLLocationManager()
     var userLocation: CLLocation!
@@ -30,31 +31,37 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // initializes ViewController
     func initView() {
         mapView.delegate = self
+        favoriteMode = false
         context = CoreDataStack.sharedInstance().managedObjectContext
         showActivityIndicator()
-        loadData()
         showUserLocationOnMap()
         showVenuesOnMap()
-        
-        setMapOnSF() //TODO: remove
-        
-//        todo: re-enable
-//        CoreDataStack.sharedInstance().autoSave(Constants.autoSaveDelayInSeconds, completionHandler: nil)
-
-        // TODO
     }
     
 
+    // toggle show favorite buttons
     @IBAction func favoritesButtonPressed(sender: AnyObject) {
-        showVenuesOnMap()
-        //TODO: update
-//        let testVenue = Venue(context: context)
-//        testVenue.name = "Name"
-//        testVenue.address = "Address"
-//        testVenue.phone = "Phone"
-//        let overlayVC = OverlayViewController(parentViewController: self, venue: testVenue)
-//        overlayVC.showView()
+        if !favoriteMode {
+            // show favorites only
+            favoriteMode = true
+            favoritesButton.setImage(UIImage(named: "star-solid"), forState: UIControlState.Normal)
+            clearAllPins()
+            for venue in CoreDataStack.sharedInstance().favorites {
+                showVenueOnMap(venue)
+            }
+        } else {
+            // show regular results
+            favoriteMode = false
+            favoritesButton.setImage(UIImage(named: "star-empty"), forState: UIControlState.Normal)
+            clearAllPins()
+            showVenuesOnMap()
+        }
 
+    }
+    
+    
+    func clearAllPins() {
+        mapView.removeAnnotations(mapView.annotations)
     }
     
 
@@ -68,16 +75,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         activityIndicator.stopAnimating()
     }
     
-    
-    // loads all the data from persistent memory
-    func loadData() {
-        // check if the data is already loaded, if not load
-//        let lat = userLocation.coordinate.latitude
-//        let lon = userLocation.coordinate.longitude
-//        TODO: remove
-
-    }
-
     
     // show the already loaded venues as annotations on the map
     func showVenuesOnMap() {
@@ -135,8 +132,9 @@ extension MapViewController: CLLocationManagerDelegate {
     
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        //TODO:
-        print("Failed getting location.")
+        UIUtilities.showAlret(callerViewController: self, message: "Failed to get user location", completionHandler: {
+            self.hideActivityIndicator()
+        })
     }
     
     
@@ -145,15 +143,6 @@ extension MapViewController: CLLocationManagerDelegate {
             locationManager.requestLocation()
             mapView.showsUserLocation = true
         }
-    }
-    
-    //TODO: helper- remove after use
-    func setMapOnSF() {
-        let center = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194)
-        // TODO: update
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: Constants.MapView.latitudeRegion, longitudeDelta: Constants.MapView.longitudeRegion))
-        mapView.setRegion(region, animated: true)
-
     }
     
 }

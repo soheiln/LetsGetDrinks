@@ -13,18 +13,15 @@ import CoreLocation
 class UIUtilities {
     
     // shows alert with message and "OK" action
-    static func showAlret(callerViewController vc: UIViewController, message: String, completionHandler: (()->Void)) {
+    static func showAlret(callerViewController vc: UIViewController, message: String, completionHandler: (()->Void)!) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
         alert.addAction(alertAction)
         vc.presentViewController(alert, animated: true, completion: nil)
         // call completion handler (e.g. to stop activity indicator)
-        completionHandler()
+        if let handler = completionHandler {
+            handler()
+        }
     }
     
-    // modally presents an overlay 'location details' view
-    static func showVenueDetailsOverlay(callerViewController vc: UIViewController, venue: Venue, completionHandler: (()->Void)) {
-        
-    }
-
 }
