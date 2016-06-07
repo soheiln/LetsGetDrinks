@@ -211,9 +211,6 @@ class GoogleClient {
                 venue.photo = data
             }
             
-            // call completion handler and hand over the loaded venue
-            completionHandler(venue)
-            
         }
         task.resume()
         

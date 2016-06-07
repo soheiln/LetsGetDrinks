@@ -45,6 +45,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
             // show favorites only
             favoriteMode = true
             favoritesButton.setImage(UIImage(named: "star-solid"), forState: UIControlState.Normal)
+            CoreDataStack.sharedInstance().loadData() // load favorites into CoreDataStack.sharedInstance().favorites
             clearAllPins()
             for venue in CoreDataStack.sharedInstance().favorites {
                 showVenueOnMap(venue)

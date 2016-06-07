@@ -67,22 +67,7 @@ class Venue: NSManagedObject {
         } else {
             // create a new similar venue object in the main context
             let favoritesContext = CoreDataStack.sharedInstance().managedObjectContext
-            let venue = Venue(venue: self, context: favoritesContext)
-            
-            // add to CoreDataStack.sharedInstance().favorites
-            CoreDataStack.sharedInstance().favorites.append(venue)
-            
-            // remove from CoreDataStack.sharedInstance().venues
-            var index = 0
-            for item in CoreDataStack.sharedInstance().venues {
-                if item.placeID == self.placeID {
-                    CoreDataStack.sharedInstance().venues.removeAtIndex(index)
-                }
-                index += 1
-            }
-
-            // remove from scratch
-            self.managedObjectContext?.deleteObject(self)
+            _ = Venue(venue: self, context: favoritesContext)
             
         }
     }
@@ -94,26 +79,14 @@ class Venue: NSManagedObject {
             return
         }
         let favoritesContext = CoreDataStack.sharedInstance().managedObjectContext
-        if self.managedObjectContext == favoritesContext {
-            // remove from favorites
-            favoritesContext.deleteObject(self)
-            var index = 0
-            for item in CoreDataStack.sharedInstance().favorites {
-                if item.placeID == self.placeID {
-                    CoreDataStack.sharedInstance().favorites.removeAtIndex(index) // remove from CoreDataStack.sharedInstance().favorites for now
-                }
-                index += 1
+        let favorites = CoreDataStack.sharedInstance().favorites
+        var index = 0
+        for item in favorites {
+            if item.placeID == self.placeID {
+                favoritesContext.deleteObject(item)
+                CoreDataStack.sharedInstance().favorites.removeAtIndex(index)
             }
-        } else {
-            let favorites = CoreDataStack.sharedInstance().favorites
-            var index = 0
-            for item in favorites {
-                if item.placeID == self.placeID {
-                    favoritesContext.deleteObject(item)
-                    CoreDataStack.sharedInstance().favorites.removeAtIndex(index) // remove from CoreDataStack.sharedInstance().favorites for now
-                }
-                index += 1
-            }
+            index += 1
         }
     }
 }
