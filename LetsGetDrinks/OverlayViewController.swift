@@ -140,6 +140,12 @@ class OverlayViewController: UIViewController {
         } else {
             venue.removeFromFavorites()
         }
+        // update map view if favorite mode and a venue is de-favorited
+        if let vc = parentVC as? MapViewController {
+            if vc.favoritesSwitch.on {
+                vc.refreshAndShowFavoritesOnMap()
+            }
+        }
     }
     
 }

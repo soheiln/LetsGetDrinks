@@ -43,12 +43,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
     @IBAction func favoritesSwitchToggled(sender: AnyObject) {
         if favoritesSwitch.on {
             // show favorites only
-            CoreDataStack.sharedInstance().loadData() // load favorites into CoreDataStack.sharedInstance().favorites
-            clearAllPins()
-            for venue in CoreDataStack.sharedInstance().favorites {
-                showVenueOnMap(venue)
-            }
-
+            refreshAndShowFavoritesOnMap()
         } else {
             // show regular results
             clearAllPins()
@@ -57,6 +52,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
         }
     }
     
+    func refreshAndShowFavoritesOnMap() {
+        CoreDataStack.sharedInstance().loadData() // load favorites into CoreDataStack.sharedInstance().favorites
+        clearAllPins()
+        for venue in CoreDataStack.sharedInstance().favorites {
+            showVenueOnMap(venue)
+        }
+    }
     
     func clearAllPins() {
         mapView.removeAnnotations(mapView.annotations)
