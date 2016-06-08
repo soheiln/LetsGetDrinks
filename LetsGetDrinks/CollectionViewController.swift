@@ -17,7 +17,9 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
-    var favoriteMode: Bool!
+    @IBOutlet weak var favoritesSwitch: UISwitch!
+    
+    
     var context: NSManagedObjectContext!
     var scratchContext: NSManagedObjectContext!
     var fetchedResultsController : NSFetchedResultsController! {
@@ -39,9 +41,9 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
         hideActivityIndicator()
         collectionView.dataSource = self
         collectionView.delegate = self
-        favoriteMode = false
         context = CoreDataStack.sharedInstance().managedObjectContext
         scratchContext = CoreDataStack.sharedInstance().scratchContext
+        favoritesSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75)
         initCollectionView()
         
         // initially set the frc to scratchContext for loading pins over network
@@ -61,23 +63,18 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
-
-    // toggle show favorite buttons
-    @IBAction func favoritesButtonPressed(sender: AnyObject) {
-        if !favoriteMode {
+    
+    
+    @IBAction func favoritesSwitchToggled(sender: AnyObject) {
+        if favoritesSwitch.on {
             // show favorites only
-            favoriteMode = true
-            favoritesButton.setImage(UIImage(named: "star-solid"), forState: UIControlState.Normal)
             setFetchedResultsControllerForContext(context)
-            
         } else {
             // show regular results
-            favoriteMode = false
-            favoritesButton.setImage(UIImage(named: "star-empty"), forState: UIControlState.Normal)
             setFetchedResultsControllerForContext(scratchContext)
+            
         }
     }
-    
     
         
     func showActivityIndicator() {

@@ -17,7 +17,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var favoriteMode: Bool!
+    @IBOutlet weak var favoritesSwitch: UISwitch!
+    
     var context: NSManagedObjectContext!
     var locationManager = CLLocationManager()
     var userLocation: CLLocation!
@@ -31,33 +32,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
     // initializes ViewController
     func initView() {
         mapView.delegate = self
-        favoriteMode = false
         context = CoreDataStack.sharedInstance().managedObjectContext
         showActivityIndicator()
         showUserLocationOnMap()
         showVenuesOnMap()
+        favoritesSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75)
     }
     
-
-    // toggle show favorite buttons
-    @IBAction func favoritesButtonPressed(sender: AnyObject) {
-        if !favoriteMode {
+    
+    @IBAction func favoritesSwitchToggled(sender: AnyObject) {
+        if favoritesSwitch.on {
             // show favorites only
-            favoriteMode = true
-            favoritesButton.setImage(UIImage(named: "star-solid"), forState: UIControlState.Normal)
             CoreDataStack.sharedInstance().loadData() // load favorites into CoreDataStack.sharedInstance().favorites
             clearAllPins()
             for venue in CoreDataStack.sharedInstance().favorites {
                 showVenueOnMap(venue)
             }
+
         } else {
             // show regular results
-            favoriteMode = false
-            favoritesButton.setImage(UIImage(named: "star-empty"), forState: UIControlState.Normal)
             clearAllPins()
             showVenuesOnMap()
-        }
 
+        }
     }
     
     

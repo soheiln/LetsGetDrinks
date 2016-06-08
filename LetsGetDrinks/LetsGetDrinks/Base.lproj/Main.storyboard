@@ -21,34 +21,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqO-CZ-lvb" userLabel="topView">
                                 <rect key="frame" x="0.0" y="20" width="600" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97s-po-yi5" userLabel="favoritesButton">
-                                        <rect key="frame" x="552" y="15" width="28" height="30"/>
-                                        <state key="normal" image="star-empty"/>
-                                        <connections>
-                                            <action selector="favoritesButtonPressed:" destination="kLD-hB-0QZ" eventType="touchUpInside" id="1ee-wc-AOG"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Drinks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGx-Ab-ysb">
                                         <rect key="frame" x="239" y="19" width="122" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="T0z-Ii-zDE" userLabel="favoritesSwitch">
+                                        <rect key="frame" x="531" y="15" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="favoritesSwitchToggled:" destination="kLD-hB-0QZ" eventType="valueChanged" id="DZL-wb-d2m"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="T0z-Ii-zDE" secondAttribute="trailing" constant="20" id="KOW-0u-G28"/>
                                     <constraint firstItem="GGx-Ab-ysb" firstAttribute="centerX" secondItem="NqO-CZ-lvb" secondAttribute="centerX" id="WMw-de-M4d"/>
-                                    <constraint firstItem="97s-po-yi5" firstAttribute="leading" secondItem="NqO-CZ-lvb" secondAttribute="leading" constant="20" id="XOh-1w-Gt1"/>
                                     <constraint firstAttribute="height" constant="60" id="h8N-mk-vqh"/>
-                                    <constraint firstAttribute="trailing" secondItem="97s-po-yi5" secondAttribute="trailing" constant="20" id="r9a-K6-tLN"/>
-                                    <constraint firstItem="97s-po-yi5" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="slu-mr-s2s"/>
                                     <constraint firstItem="GGx-Ab-ysb" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="xyW-gX-DnJ"/>
+                                    <constraint firstItem="T0z-Ii-zDE" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="yUm-iV-2JC"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="XOh-1w-Gt1"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WS5-Ou-eMT">
                                 <rect key="frame" x="0.0" y="80" width="600" height="471"/>
@@ -82,7 +75,7 @@
                     <tabBarItem key="tabBarItem" title="" image="map-icon" id="sb6-h4-2FN"/>
                     <connections>
                         <outlet property="activityIndicator" destination="8yB-67-yyK" id="cH8-ID-Xra"/>
-                        <outlet property="favoritesButton" destination="97s-po-yi5" id="Ohq-wQ-OBL"/>
+                        <outlet property="favoritesSwitch" destination="T0z-Ii-zDE" id="jF0-K5-Qsa"/>
                         <outlet property="mapView" destination="WS5-Ou-eMT" id="t4b-21-nMQ"/>
                     </connections>
                 </viewController>
@@ -105,27 +98,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXx-sf-1b5" userLabel="topView">
                                 <rect key="frame" x="0.0" y="20" width="600" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49I-Tw-gk4" userLabel="favoritesButton">
-                                        <rect key="frame" x="552" y="15" width="28" height="30"/>
-                                        <state key="normal" image="star-empty"/>
-                                        <connections>
-                                            <action selector="favoritesButtonPressed:" destination="EeQ-E9-fNa" eventType="touchUpInside" id="3en-xe-c0e"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Drinks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIv-sI-0P8">
                                         <rect key="frame" x="239" y="19" width="122" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ktg-m5-9H0" userLabel="favoritesSwitch">
+                                        <rect key="frame" x="531" y="14" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="favoritesSwitchToggled:" destination="EeQ-E9-fNa" eventType="valueChanged" id="eWR-We-L5g"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="49I-Tw-gk4" secondAttribute="trailing" constant="20" id="3Es-xj-oHj"/>
                                     <constraint firstItem="jIv-sI-0P8" firstAttribute="centerX" secondItem="JXx-sf-1b5" secondAttribute="centerX" id="5im-8K-pGw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ktg-m5-9H0" secondAttribute="trailing" constant="20" id="L4Z-3E-VGJ"/>
                                     <constraint firstItem="jIv-sI-0P8" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="epd-Hi-aZR"/>
-                                    <constraint firstItem="49I-Tw-gk4" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="wKe-7u-Gzz"/>
                                     <constraint firstAttribute="height" constant="60" id="xFO-gu-hVX"/>
+                                    <constraint firstItem="Ktg-m5-9H0" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="xTM-4F-7nd"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KxL-Jv-XxV" userLabel="collectionView">
@@ -193,7 +185,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="1Cf-xw-sos" id="Dv1-Bv-phB"/>
                         <outlet property="collectionView" destination="KxL-Jv-XxV" id="c96-UI-Zk5"/>
-                        <outlet property="favoritesButton" destination="49I-Tw-gk4" id="yXt-cr-B1S"/>
+                        <outlet property="favoritesSwitch" destination="Ktg-m5-9H0" id="Od8-sz-0aw"/>
                         <outlet property="flowLayout" destination="Ops-XI-IMj" id="71q-wK-OgY"/>
                     </connections>
                 </viewController>
@@ -223,6 +215,5 @@
     <resources>
         <image name="list-icon" width="30" height="30"/>
         <image name="map-icon" width="30" height="30"/>
-        <image name="star-empty" width="28" height="30"/>
     </resources>
 </document>
