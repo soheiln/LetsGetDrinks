@@ -139,13 +139,8 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("VenueCollectionViewCell", forIndexPath: indexPath) as! VenueCollectionViewCell
         let venues = fetchedResultsController.fetchedObjects as! [Venue]
         let venue = venues[indexPath.row]
-        if let photo = venue.photo {
-            cell.imageView.image = UIImage(data: photo)
-        } else {
-            cell.imageView.image = UIImage(named: "no_image_available")
-        }
         cell.venue = venue
-        cell.label.text = venue.name
+        cell.initView()
         return cell
     }
     
