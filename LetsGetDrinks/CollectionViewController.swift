@@ -42,6 +42,7 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
         hideActivityIndicator()
         collectionView.dataSource = self
         collectionView.delegate = self
+        searchBar.delegate = self
         context = CoreDataStack.sharedInstance().managedObjectContext
         scratchContext = CoreDataStack.sharedInstance().scratchContext
         favoritesSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75)
@@ -92,7 +93,7 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
     // Loads the collection view with loaded venues
     func setFetchedResultsControllerForContext(context: NSManagedObjectContext) {
         let fetchRequest = NSFetchRequest(entityName: "Venue")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latitude", ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
     }
@@ -150,4 +151,22 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         overlayVC.showView()
     }
     
+}
+
+
+
+// MARK: - UISearchBarDelegate
+extension CollectionViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        let context = favoritesSwitch.on ? CoreDataStack.sharedInstance().managedObjectContext : CoreDataStack.sharedInstance().scratchContext
+        if searchText == "" {
+            setFetchedResultsControllerForContext(context)
+        } else {
+            let namePredicate = NSPredicate(format: "name CONTAINS[c] %@", argumentArray: [searchText])
+            let fetchRequest = NSFetchRequest(entityName: "Venue")
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            fetchRequest.predicate = namePredicate
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        }
+    }
 }

@@ -27,15 +27,15 @@
                                             <action selector="favoritesSwitchToggled:" destination="kLD-hB-0QZ" eventType="valueChanged" id="DZL-wb-d2m"/>
                                         </connections>
                                     </switch>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-Gk-QBH" userLabel="refreshButton">
-                                        <rect key="frame" x="20" y="15" width="53" height="30"/>
-                                        <state key="normal" title="Refresh"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-Gk-QBH" userLabel="refreshButton">
+                                        <rect key="frame" x="20" y="15" width="30" height="30"/>
+                                        <state key="normal" image="refresh-icon"/>
                                         <connections>
                                             <action selector="refreshButtonPressed:" destination="kLD-hB-0QZ" eventType="touchUpInside" id="yI0-9l-q9h"/>
                                         </connections>
                                     </button>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0Ga-gW-QMM" userLabel="searchBar">
-                                        <rect key="frame" x="113" y="0.0" width="398" height="60"/>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search within results" translatesAutoresizingMaskIntoConstraints="NO" id="0Ga-gW-QMM" userLabel="searchBar">
+                                        <rect key="frame" x="70" y="0.0" width="441" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="0xH-DV-nwu"/>
                                             <constraint firstAttribute="height" constant="60" id="hdy-dk-UhM"/>
@@ -52,7 +52,7 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="0Ga-gW-QMM" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="30K-al-h2q"/>
-                                    <constraint firstItem="0Ga-gW-QMM" firstAttribute="leading" secondItem="Leq-Gk-QBH" secondAttribute="trailing" constant="40" id="E4L-Gl-Geb"/>
+                                    <constraint firstItem="0Ga-gW-QMM" firstAttribute="leading" secondItem="Leq-Gk-QBH" secondAttribute="trailing" constant="20" id="E4L-Gl-Geb"/>
                                     <constraint firstAttribute="trailing" secondItem="T0z-Ii-zDE" secondAttribute="trailing" constant="20" id="KOW-0u-G28"/>
                                     <constraint firstItem="Leq-Gk-QBH" firstAttribute="leading" secondItem="NqO-CZ-lvb" secondAttribute="leading" constant="20" id="NHY-wW-HMX"/>
                                     <constraint firstAttribute="height" constant="60" id="h8N-mk-vqh"/>
@@ -124,12 +124,12 @@
                                             <action selector="favoritesSwitchToggled:" destination="EeQ-E9-fNa" eventType="valueChanged" id="eWR-We-L5g"/>
                                         </connections>
                                     </switch>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNi-AV-CT7" userLabel="refreshButton">
-                                        <rect key="frame" x="20" y="15" width="53" height="30"/>
-                                        <state key="normal" title="Refresh"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNi-AV-CT7" userLabel="refreshButton">
+                                        <rect key="frame" x="20" y="15" width="30" height="30"/>
+                                        <state key="normal" image="refresh-icon"/>
                                     </button>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lpt-8e-fJK" userLabel="searchBar">
-                                        <rect key="frame" x="113" y="0.0" width="398" height="60"/>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search within results" translatesAutoresizingMaskIntoConstraints="NO" id="lpt-8e-fJK" userLabel="searchBar">
+                                        <rect key="frame" x="70" y="0.0" width="441" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="KJr-xK-DgT"/>
                                             <constraint firstAttribute="height" constant="60" id="V8J-Pg-Fcz"/>
@@ -149,7 +149,7 @@
                                     <constraint firstItem="MNi-AV-CT7" firstAttribute="leading" secondItem="JXx-sf-1b5" secondAttribute="leading" constant="20" id="7Nh-98-V9f"/>
                                     <constraint firstItem="Ktg-m5-9H0" firstAttribute="leading" secondItem="lpt-8e-fJK" secondAttribute="trailing" constant="20" id="9UU-4S-vPD"/>
                                     <constraint firstAttribute="trailing" secondItem="Ktg-m5-9H0" secondAttribute="trailing" constant="20" id="L4Z-3E-VGJ"/>
-                                    <constraint firstItem="lpt-8e-fJK" firstAttribute="leading" secondItem="MNi-AV-CT7" secondAttribute="trailing" constant="40" id="N8R-0S-R8F"/>
+                                    <constraint firstItem="lpt-8e-fJK" firstAttribute="leading" secondItem="MNi-AV-CT7" secondAttribute="trailing" constant="20" id="N8R-0S-R8F"/>
                                     <constraint firstItem="MNi-AV-CT7" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="TUf-sm-dlp"/>
                                     <constraint firstItem="lpt-8e-fJK" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="Xnd-H4-qPg"/>
                                     <constraint firstAttribute="height" constant="60" id="xFO-gu-hVX"/>
@@ -253,5 +253,6 @@
     <resources>
         <image name="list-icon" width="30" height="30"/>
         <image name="map-icon" width="30" height="30"/>
+        <image name="refresh-icon" width="30" height="30"/>
     </resources>
 </document>

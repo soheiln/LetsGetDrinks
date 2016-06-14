@@ -33,6 +33,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
     // initializes ViewController
     func initView() {
         mapView.delegate = self
+        searchBar.delegate = self
         context = CoreDataStack.sharedInstance().managedObjectContext
         showActivityIndicator()
         showUserLocationOnMap()
@@ -173,4 +174,23 @@ extension MapViewController {
         overlayVC.showView()
     }
 
+}
+
+
+// MARK: - UISearchBarDelegate
+extension MapViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            showVenuesOnMap()
+        }
+        else {
+            clearAllPins()
+            for venue in CoreDataStack.sharedInstance().venues {
+                if venue.name!.lowercaseString.containsString(searchText.lowercaseString) {
+                    showVenueOnMap(venue)
+                }
+            }
+        }
+        
+    }
 }
