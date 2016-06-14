@@ -11,14 +11,15 @@ import CoreData
 
 class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
     
-    @IBOutlet weak var favoritesButton: UIButton!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
     @IBOutlet weak var favoritesSwitch: UISwitch!
     
+    @IBOutlet weak var refreshButton: UIButton!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var context: NSManagedObjectContext!
     var scratchContext: NSManagedObjectContext!

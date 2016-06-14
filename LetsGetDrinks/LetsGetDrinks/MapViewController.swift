@@ -12,12 +12,13 @@ import CoreData
 
 class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorProtocol {
 
-    @IBOutlet weak var favoritesButton: UIButton!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var favoritesSwitch: UISwitch!
+    @IBOutlet weak var refreshButton: UIButton!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var context: NSManagedObjectContext!
     var locationManager = CLLocationManager()
@@ -51,6 +52,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
 
         }
     }
+    
+    
+    @IBAction func refreshButtonPressed(sender: AnyObject) {
+    }
+    
     
     func refreshAndShowFavoritesOnMap() {
         CoreDataStack.sharedInstance().loadData() // load favorites into CoreDataStack.sharedInstance().favorites

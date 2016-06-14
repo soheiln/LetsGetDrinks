@@ -21,26 +21,44 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqO-CZ-lvb" userLabel="topView">
                                 <rect key="frame" x="0.0" y="20" width="600" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Drinks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGx-Ab-ysb">
-                                        <rect key="frame" x="239" y="19" width="122" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="T0z-Ii-zDE" userLabel="favoritesSwitch">
                                         <rect key="frame" x="531" y="15" width="51" height="31"/>
                                         <connections>
                                             <action selector="favoritesSwitchToggled:" destination="kLD-hB-0QZ" eventType="valueChanged" id="DZL-wb-d2m"/>
                                         </connections>
                                     </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-Gk-QBH" userLabel="refreshButton">
+                                        <rect key="frame" x="20" y="15" width="53" height="30"/>
+                                        <state key="normal" title="Refresh"/>
+                                        <connections>
+                                            <action selector="refreshButtonPressed:" destination="kLD-hB-0QZ" eventType="touchUpInside" id="yI0-9l-q9h"/>
+                                        </connections>
+                                    </button>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0Ga-gW-QMM" userLabel="searchBar">
+                                        <rect key="frame" x="113" y="0.0" width="398" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="0xH-DV-nwu"/>
+                                            <constraint firstAttribute="height" constant="60" id="hdy-dk-UhM"/>
+                                        </constraints>
+                                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="0xH-DV-nwu"/>
+                                            </mask>
+                                        </variation>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="0Ga-gW-QMM" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="30K-al-h2q"/>
+                                    <constraint firstItem="0Ga-gW-QMM" firstAttribute="leading" secondItem="Leq-Gk-QBH" secondAttribute="trailing" constant="40" id="E4L-Gl-Geb"/>
                                     <constraint firstAttribute="trailing" secondItem="T0z-Ii-zDE" secondAttribute="trailing" constant="20" id="KOW-0u-G28"/>
-                                    <constraint firstItem="GGx-Ab-ysb" firstAttribute="centerX" secondItem="NqO-CZ-lvb" secondAttribute="centerX" id="WMw-de-M4d"/>
+                                    <constraint firstItem="Leq-Gk-QBH" firstAttribute="leading" secondItem="NqO-CZ-lvb" secondAttribute="leading" constant="20" id="NHY-wW-HMX"/>
                                     <constraint firstAttribute="height" constant="60" id="h8N-mk-vqh"/>
-                                    <constraint firstItem="GGx-Ab-ysb" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="xyW-gX-DnJ"/>
+                                    <constraint firstItem="T0z-Ii-zDE" firstAttribute="leading" secondItem="0Ga-gW-QMM" secondAttribute="trailing" constant="20" id="yCj-bL-eKb"/>
                                     <constraint firstItem="T0z-Ii-zDE" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="yUm-iV-2JC"/>
+                                    <constraint firstItem="Leq-Gk-QBH" firstAttribute="centerY" secondItem="NqO-CZ-lvb" secondAttribute="centerY" id="yhe-Tf-bO0"/>
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WS5-Ou-eMT">
@@ -77,6 +95,8 @@
                         <outlet property="activityIndicator" destination="8yB-67-yyK" id="cH8-ID-Xra"/>
                         <outlet property="favoritesSwitch" destination="T0z-Ii-zDE" id="jF0-K5-Qsa"/>
                         <outlet property="mapView" destination="WS5-Ou-eMT" id="t4b-21-nMQ"/>
+                        <outlet property="refreshButton" destination="Leq-Gk-QBH" id="4IQ-gI-CQp"/>
+                        <outlet property="searchBar" destination="0Ga-gW-QMM" id="pZu-il-bt1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpN-kR-IYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,24 +118,40 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXx-sf-1b5" userLabel="topView">
                                 <rect key="frame" x="0.0" y="20" width="600" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Drinks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIv-sI-0P8">
-                                        <rect key="frame" x="239" y="19" width="122" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ktg-m5-9H0" userLabel="favoritesSwitch">
                                         <rect key="frame" x="531" y="14" width="51" height="31"/>
                                         <connections>
                                             <action selector="favoritesSwitchToggled:" destination="EeQ-E9-fNa" eventType="valueChanged" id="eWR-We-L5g"/>
                                         </connections>
                                     </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNi-AV-CT7" userLabel="refreshButton">
+                                        <rect key="frame" x="20" y="15" width="53" height="30"/>
+                                        <state key="normal" title="Refresh"/>
+                                    </button>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lpt-8e-fJK" userLabel="searchBar">
+                                        <rect key="frame" x="113" y="0.0" width="398" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="KJr-xK-DgT"/>
+                                            <constraint firstAttribute="height" constant="60" id="V8J-Pg-Fcz"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="v3Y-HC-Uvs"/>
+                                        </constraints>
+                                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="KJr-xK-DgT"/>
+                                            </mask>
+                                        </variation>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="jIv-sI-0P8" firstAttribute="centerX" secondItem="JXx-sf-1b5" secondAttribute="centerX" id="5im-8K-pGw"/>
+                                    <constraint firstItem="MNi-AV-CT7" firstAttribute="leading" secondItem="JXx-sf-1b5" secondAttribute="leading" constant="20" id="7Nh-98-V9f"/>
+                                    <constraint firstItem="Ktg-m5-9H0" firstAttribute="leading" secondItem="lpt-8e-fJK" secondAttribute="trailing" constant="20" id="9UU-4S-vPD"/>
                                     <constraint firstAttribute="trailing" secondItem="Ktg-m5-9H0" secondAttribute="trailing" constant="20" id="L4Z-3E-VGJ"/>
-                                    <constraint firstItem="jIv-sI-0P8" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="epd-Hi-aZR"/>
+                                    <constraint firstItem="lpt-8e-fJK" firstAttribute="leading" secondItem="MNi-AV-CT7" secondAttribute="trailing" constant="40" id="N8R-0S-R8F"/>
+                                    <constraint firstItem="MNi-AV-CT7" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="TUf-sm-dlp"/>
+                                    <constraint firstItem="lpt-8e-fJK" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="Xnd-H4-qPg"/>
                                     <constraint firstAttribute="height" constant="60" id="xFO-gu-hVX"/>
                                     <constraint firstItem="Ktg-m5-9H0" firstAttribute="centerY" secondItem="JXx-sf-1b5" secondAttribute="centerY" id="xTM-4F-7nd"/>
                                 </constraints>
@@ -187,6 +223,8 @@
                         <outlet property="collectionView" destination="KxL-Jv-XxV" id="c96-UI-Zk5"/>
                         <outlet property="favoritesSwitch" destination="Ktg-m5-9H0" id="Od8-sz-0aw"/>
                         <outlet property="flowLayout" destination="Ops-XI-IMj" id="71q-wK-OgY"/>
+                        <outlet property="refreshButton" destination="MNi-AV-CT7" id="2so-gv-ycz"/>
+                        <outlet property="searchBar" destination="lpt-8e-fJK" id="bCM-LX-ojE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIv-Jn-eiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
