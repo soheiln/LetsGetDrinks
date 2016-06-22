@@ -16,7 +16,6 @@ class GoogleClient {
         
         // Configure HTTP request
         let url = NSURL(string: Constants.GoogleAPI.placeSearchMethodURL + "key=" + Constants.GoogleAPI.apiKey + "&location=" + String(latitude) + "," + String(longitude) + "&radius=" + Constants.GoogleAPI.radiusOfSearch + "&type=bar")!
-        print(url) //todo: remove
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "GET"
         

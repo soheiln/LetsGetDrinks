@@ -40,7 +40,7 @@
                                             <constraint firstAttribute="width" constant="30" id="0xH-DV-nwu"/>
                                             <constraint firstAttribute="height" constant="60" id="hdy-dk-UhM"/>
                                         </constraints>
-                                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -135,7 +135,7 @@
                                             <constraint firstAttribute="height" constant="60" id="V8J-Pg-Fcz"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="v3Y-HC-Uvs"/>
                                         </constraints>
-                                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <variation key="default">
                                             <mask key="constraints">

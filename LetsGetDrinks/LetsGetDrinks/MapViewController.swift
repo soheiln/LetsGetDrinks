@@ -56,6 +56,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
     
     
     @IBAction func refreshButtonPressed(sender: AnyObject) {
+        CoreDataStack.sharedInstance().venues = [Venue]()
+        showActivityIndicator()
+        clearAllPins()
+        locationManager.requestLocation()
     }
     
     
@@ -131,7 +135,6 @@ extension MapViewController: CLLocationManagerDelegate {
         mapView.setRegion(region, animated: true)
         GoogleClient.getVenuesNearLocation(callerViewController: self, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, errorHandler: nil,  completionHandler: { venue in
             dispatch_async(dispatch_get_main_queue()) {
-                print(venue)
                 CoreDataStack.sharedInstance().venues.append(venue)
                 self.showVenueOnMap(venue)
             }
@@ -153,7 +156,6 @@ extension MapViewController: CLLocationManagerDelegate {
             mapView.showsUserLocation = true
         }
     }
-    
 }
 
 
