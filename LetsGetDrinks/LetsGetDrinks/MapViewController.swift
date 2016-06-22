@@ -57,6 +57,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
     
     @IBAction func refreshButtonPressed(sender: AnyObject) {
         CoreDataStack.sharedInstance().venues = [Venue]()
+        CoreDataStack.sharedInstance().scratchContext.reset()
         showActivityIndicator()
         clearAllPins()
         locationManager.requestLocation()

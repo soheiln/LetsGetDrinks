@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import CoreData
 
 class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
@@ -14,12 +15,11 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-
     @IBOutlet weak var favoritesSwitch: UISwitch!
-    
     @IBOutlet weak var refreshButton: UIButton!
-    
     @IBOutlet weak var searchBar: UISearchBar!
+    var locationManager = CLLocationManager()
+    var userLocation: CLLocation!
     
     var context: NSManagedObjectContext!
     var scratchContext: NSManagedObjectContext!
@@ -43,6 +43,7 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
+        locationManager.delegate = self
         context = CoreDataStack.sharedInstance().managedObjectContext
         scratchContext = CoreDataStack.sharedInstance().scratchContext
         favoritesSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75)
@@ -76,6 +77,14 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
             setFetchedResultsControllerForContext(scratchContext)
             
         }
+    }
+    
+    
+    @IBAction func refreshButtonPressed(sender: AnyObject) {
+        showActivityIndicator()
+        CoreDataStack.sharedInstance().venues = [Venue]()
+        CoreDataStack.sharedInstance().scratchContext.reset()
+        locationManager.requestLocation()
     }
     
         
@@ -169,4 +178,33 @@ extension CollectionViewController: UISearchBarDelegate {
             fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         }
     }
+}
+
+
+// MARK: - CLLocationManager Delegate
+extension CollectionViewController: CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //user location detected
+        userLocation = locations.last! as CLLocation
+        GoogleClient.getVenuesNearLocation(callerViewController: self, latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, errorHandler: nil,  completionHandler: { venue in
+            dispatch_async(dispatch_get_main_queue()) {
+                CoreDataStack.sharedInstance().venues.append(venue)
+            }
+        })
+        hideActivityIndicator()
+    }
+    
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        UIUtilities.showAlret(callerViewController: self, message: "Failed to get user location", completionHandler: {
+            self.hideActivityIndicator()
+        })
+    }
+    
+//    
+//    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+//        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+//            locationManager.requestLocation()
+//        }
+//    }
 }

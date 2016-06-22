@@ -127,6 +127,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNi-AV-CT7" userLabel="refreshButton">
                                         <rect key="frame" x="20" y="15" width="30" height="30"/>
                                         <state key="normal" image="refresh-icon"/>
+                                        <connections>
+                                            <action selector="refreshButtonPressed:" destination="EeQ-E9-fNa" eventType="touchUpInside" id="aq6-8f-uit"/>
+                                        </connections>
                                     </button>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search within results" translatesAutoresizingMaskIntoConstraints="NO" id="lpt-8e-fJK" userLabel="searchBar">
                                         <rect key="frame" x="70" y="0.0" width="441" height="60"/>
