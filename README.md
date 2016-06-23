@@ -2,15 +2,11 @@
 
 LetsGetDrinks is an iOS app with a simple interface that let's you quickly find bars nearby and request an Uber ride for them.
 
-Once you open the app, it will ask for permission to use your location while the app is running, and once the location is loaded it will zoom in to your region and show nearby venues on the map using Google Places Search API.
+Once you open the app, it will ask for permission to use your location while the app is running, and once the location is loaded it will zoom in to your region and show nearby venues on the map using Google Places Search API. (note: if you're using the XCode simulator, you should select a location from the location simulator drop down location in the bottom pane of XCode for the app to be able to pick up your location and perform a local search)
 
 Selecting a venue allows you to see its information in an overlay view with options of adding it to your favorites for future offline access and requesting an uber ride to the address, using Uber API.
 
-The app provides map and collection views for scrolling through venues. There's a favorites switch button at the top right which allows you to toggle between seeing regular search and favorited venues.
-
-The search bar at the top helps you filter the existing results based on the name of the venue.
-
-The refresh button on the top left is handy when you have changed locations since the last search and would like to perform a new nearby search.
+The app provides map and collection views for scrolling through venues. There's a favorites switch button at the top right which allows you to toggle between seeing regular search and favorited venues. The search bar at the top helps you filter the existing results based on the name of the venue. The refresh button on the top left is handy when you have changed locations since the last search and would like to perform a new nearby search.
 
 ![alt tag](https://raw.githubusercontent.com/soheiln/LetsGetDrinks/master/LetsGetDrinks/Screenshots/screenshot1.png)
 ![alt tag](https://raw.githubusercontent.com/soheiln/LetsGetDrinks/master/LetsGetDrinks/Screenshots/screenshot2.png)
