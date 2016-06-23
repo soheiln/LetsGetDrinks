@@ -22,6 +22,7 @@ The refresh button on the top left is handy when you have changed locations sinc
 # API Reference
 
 [Google Place Search API](https://developers.google.com/places/web-service/search)
+
 [Uber Request API](https://developer.uber.com/docs/overview)
 
 

@@ -802,7 +802,7 @@
                   moduleName = "LetsGetDrinks"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/soheiln/Desktop/iOS%20Projects/LetsGetDrinks/LetsGetDrinks/CollectionViewController.swift"
-                  timestampString = "488329224.451321"
+                  timestampString = "488391800.175076"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "189"
@@ -817,7 +817,7 @@
                   moduleName = "LetsGetDrinks"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator9.3.sdk/usr/include/dispatch/queue.h"
-                  timestampString = "488329224.451542"
+                  timestampString = "488391800.17522"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "325"
@@ -856,6 +856,22 @@
             startingLineNumber = "41"
             endingLineNumber = "41"
             landmarkName = "initView()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LetsGetDrinks/MapViewController.swift"
+            timestampString = "488391791.891286"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "mapView(_:didSelectAnnotationView:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

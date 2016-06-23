@@ -169,6 +169,9 @@ extension MapViewController {
     }
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        if view.annotation!.isKindOfClass(MKUserLocation) {
+            return
+        }
         let pinAnnotation = view.annotation as! PinAnnotation
         mapView.deselectAnnotation(pinAnnotation, animated: false)
         CoreDataStack.sharedInstance().currentAnnotation = pinAnnotation
