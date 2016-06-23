@@ -17,6 +17,7 @@ class CoreDataStack {
     var favorites = [Venue]()
     var currentVenue: Venue!
     var currentAnnotation: PinAnnotation!
+    var favoritesMode: Bool = false
     
     
     lazy var frc: NSFetchedResultsController = {

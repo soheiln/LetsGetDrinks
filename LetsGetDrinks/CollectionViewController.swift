@@ -38,6 +38,16 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
     }
     
     
+    override func viewWillAppear(animated: Bool) {
+        if CoreDataStack.sharedInstance().favoritesMode {
+            favoritesSwitch.on = true
+            setFetchedResultsControllerForContext(context)
+        } else {
+            favoritesSwitch.on = false
+            setFetchedResultsControllerForContext(scratchContext)
+        }
+    }
+    
     func initView() {
         hideActivityIndicator()
         collectionView.dataSource = self
@@ -46,7 +56,16 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
         locationManager.delegate = self
         context = CoreDataStack.sharedInstance().managedObjectContext
         scratchContext = CoreDataStack.sharedInstance().scratchContext
+        
         favoritesSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75)
+        if CoreDataStack.sharedInstance().favoritesMode {
+            favoritesSwitch.on = true
+            setFetchedResultsControllerForContext(context)
+        } else {
+            favoritesSwitch.on = false
+            setFetchedResultsControllerForContext(scratchContext)
+        }
+
         initCollectionView()
         
         // initially set the frc to scratchContext for loading pins over network
@@ -72,10 +91,11 @@ class CollectionViewController: UIViewController, ActivityIndicatorProtocol {
         if favoritesSwitch.on {
             // show favorites only
             setFetchedResultsControllerForContext(context)
+            CoreDataStack.sharedInstance().favoritesMode = true
         } else {
             // show regular results
             setFetchedResultsControllerForContext(scratchContext)
-            
+            CoreDataStack.sharedInstance().favoritesMode = false
         }
     }
     

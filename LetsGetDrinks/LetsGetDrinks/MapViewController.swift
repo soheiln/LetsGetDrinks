@@ -28,6 +28,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
         super.viewDidLoad()
         initView()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        if CoreDataStack.sharedInstance().favoritesMode {
+            favoritesSwitch.on = true
+            refreshAndShowFavoritesOnMap()
+        } else {
+            favoritesSwitch.on = false
+            clearAllPins()
+            showVenuesOnMap()
+        }
+    }
 
     
     // initializes ViewController
@@ -39,6 +50,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
         showUserLocationOnMap()
         showVenuesOnMap()
         favoritesSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75)
+        if CoreDataStack.sharedInstance().favoritesMode {
+            favoritesSwitch.on = true
+            refreshAndShowFavoritesOnMap()
+        } else {
+            favoritesSwitch.on = false
+            clearAllPins()
+            showVenuesOnMap()
+        }
+        
     }
     
     
@@ -46,11 +66,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, ActivityIndicatorP
         if favoritesSwitch.on {
             // show favorites only
             refreshAndShowFavoritesOnMap()
+            CoreDataStack.sharedInstance().favoritesMode = true
         } else {
             // show regular results
             clearAllPins()
             showVenuesOnMap()
-
+            CoreDataStack.sharedInstance().favoritesMode = false
         }
     }
     
