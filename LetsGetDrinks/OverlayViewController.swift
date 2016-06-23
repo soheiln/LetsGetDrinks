@@ -146,6 +146,14 @@ class OverlayViewController: UIViewController {
                 vc.refreshAndShowFavoritesOnMap()
             }
         }
+
+        // update collection view if favorite mode and a venue is de-favorited
+        if let vc = parentVC as? CollectionViewController {
+            if vc.favoritesSwitch.on {
+                vc.executeSearch()
+            }
+        }
+
     }
     
 }
